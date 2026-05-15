@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import { 
   Mail, Phone, MapPin, MessageCircle, Instagram, 
-  Facebook, Twitter, Send, Clock, ShieldCheck 
+  Facebook, Twitter, Send, Clock, ShieldCheck, AlertCircle 
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import marketplaceData from '../data/marketplace.json';
 import SectionHeader from '../components/shared/SectionHeader';
+import { contactFormSchema, validateForm } from '../utils/validation';
+import { notifySuccess, notifyError } from '../utils/notifications';
 
 export default function Contact() {
   const { store } = marketplaceData;
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: 'Buying an Account',
+    message: '',
+  });
 
   const contactMethods = [
     { 
@@ -31,6 +43,40 @@ export default function Contact() {
       link: "#"
     },
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setErrors({});
+
+    try {
+      const result = await validateForm(contactFormSchema, formData);
+      
+      if (!result.valid) {
+        setErrors(result.errors || {});
+        notifyError('Please fix the errors in the form');
+        return;
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      notifySuccess('Message sent! We\'ll get back to you soon.');
+      setFormData({ name: '', email: '', subject: 'Buying an Account', message: '' });
+    } catch (error) {
+      notifyError('Failed to send message. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="pt-32 pb-24">

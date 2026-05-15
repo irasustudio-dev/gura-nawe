@@ -1,3 +1,4 @@
+import { useSEO, generateStructuredData } from '../utils/seo';
 import Hero from '../components/home/Hero';
 import CategoryMenu from '../components/home/CategoryMenu';
 import ProductCard from '../components/home/ProductCard';
@@ -9,6 +10,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, ShieldCheck, Zap } from 'lucide-react';
 
 export default function Home() {
+  useSEO({
+    title: 'GURA NAWE - Buy & Sell Digital Assets Safely | Digital Marketplace Rwanda',
+    description: 'Buy and sell social media accounts, YouTube channels, TikTok accounts, Instagram, and digital services. Trusted by 1200+ users in Rwanda. 24/7 WhatsApp support.',
+  });
+
   const featuredProducts = marketplaceData.products.slice(0, 4);
   const featuredServices = marketplaceData.services.slice(0, 3);
 
