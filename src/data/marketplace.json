@@ -1,0 +1,158 @@
+{
+  "store": {
+    "name": "GURA NAWE",
+    "tagline": "Buy & Sell Digital Assets Safely",
+    "phone": "+250722248567",
+    "whatsapp": "250722248567",
+    "email": "hello@guranawe.rw",
+    "address": "Kigali, Rwanda",
+    "socialLinks": {
+      "instagram": "https://instagram.com/guranawe",
+      "facebook": "https://facebook.com/guranawe",
+      "tiktok": "https://tiktok.com/@guranawe"
+    }
+  },
+
+  "categories": [
+    {
+      "id": "youtube",
+      "name": "YouTube Channels",
+      "icon": "Youtube"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok Accounts",
+      "icon": "Music2"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram Accounts",
+      "icon": "Instagram"
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook Pages",
+      "icon": "Facebook"
+    },
+    {
+      "id": "ebooks",
+      "name": "eBooks",
+      "icon": "Book"
+    },
+    {
+      "id": "services",
+      "name": "Growth Services",
+      "icon": "Zap"
+    }
+  ],
+
+  "products": [
+    {
+      "id": "yt-001",
+      "name": "Monetized YouTube Channel",
+      "platform": "YouTube",
+      "category": "youtube",
+      "stats": "12.5K Subs • 5.4K Watch Hours",
+      "priceRWF": 350000,
+      "description": "Clean monetized YouTube channel with active audience in the entertainment niche. No copyright strikes, original content.",
+      "features": [
+        "12.5K Subscribers",
+        "Monetized",
+        "No Copyright Issues",
+        "Organic Audience",
+        "Lifetime support"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop",
+      "isFeatured": true,
+      "isNew": true,
+      "rating": 4.9
+    },
+    {
+      "id": "tk-001",
+      "name": "Creative TikTok Account",
+      "platform": "TikTok",
+      "category": "tiktok",
+      "stats": "45K Followers • 1.2M Likes",
+      "priceRWF": 120000,
+      "description": "Viral TikTok account in the fashion/lifestyle niche. Highly engaged audience.",
+      "features": [
+        "45K Followers",
+        "1.2M Total Likes",
+        "Creator Fund Eligible",
+        "Global Audience"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1611605698335-8b1569810432?q=80&w=800&auto=format&fit=crop",
+      "isFeatured": true,
+      "isNew": false,
+      "rating": 4.8
+    },
+    {
+      "id": "ig-001",
+      "name": "Professional IG Business",
+      "platform": "Instagram",
+      "category": "instagram",
+      "stats": "15K Followers • High Reach",
+      "priceRWF": 85000,
+      "description": "Instagram business account perfect for an online store or agency.",
+      "features": [
+        "15K Real Followers",
+        "Professional Dashboard",
+        "Active Stories",
+        "Clean History"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=800&auto=format&fit=crop",
+      "isFeatured": false,
+      "isNew": true,
+      "rating": 4.7
+    },
+    {
+      "id": "eb-001",
+      "name": "Digital Marketing Mastery",
+      "platform": "Education",
+      "category": "ebooks",
+      "stats": "Digital Ebook • 120 Pages",
+      "priceRWF": 15000,
+      "description": "Complete guide to mastering digital marketing in 2024. Strategies for social media growth.",
+      "features": [
+        "Instant Download",
+        "PDF Format",
+        "Step-by-step Guide",
+        "Bonus Resources"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop",
+      "isFeatured": true,
+      "isNew": true,
+      "rating": 5.0
+    }
+  ],
+
+  "services": [
+    {
+      "id": "ser-001",
+      "name": "YouTube Subscriber Boost",
+      "priceRWF": 25000,
+      "description": "High-quality organic subscribers for your YouTube channel.",
+      "deliveryTime": "3-5 Days",
+      "icon": "Users",
+      "isPopular": true
+    },
+    {
+      "id": "ser-002",
+      "name": "TikTok Viral Views",
+      "priceRWF": 10000,
+      "description": "Get your TikTok videos the boost they need to go viral.",
+      "deliveryTime": "24 Hours",
+      "icon": "Eye",
+      "isPopular": false
+    },
+    {
+      "id": "ser-003",
+      "name": "Watch Hours Completion",
+      "priceRWF": 75000,
+      "description": "Complete your 4000 watch hours safely to get monetized.",
+      "deliveryTime": "10-15 Days",
+      "icon": "Clock",
+      "isPopular": true
+    }
+  ]
+}
