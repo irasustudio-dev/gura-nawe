@@ -92,12 +92,8 @@ export const generateStructuredData = (type: string, data: Record<string, any>) 
     ...data,
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(baseSchema) }}
-    />
-  );
+  // Return as JSON string for manual insertion
+  return JSON.stringify(baseSchema);
 };
 
 // Organization schema

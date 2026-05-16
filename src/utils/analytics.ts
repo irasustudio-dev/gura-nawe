@@ -106,7 +106,7 @@ export const trackFormSubmission = (formType: string) => {
 };
 
 /**
- * Sentry Error Tracking Integration
+ * Sentry Error Tracking Integration (Optional - not installed)
  */
 export const initializeSentry = async () => {
   if (!env.SENTRY_DSN || !env.ENABLE_ERROR_TRACKING) {
@@ -114,52 +114,22 @@ export const initializeSentry = async () => {
   }
 
   try {
-    const Sentry = await import('@sentry/react');
-    const { CaptureConsole } = await import('@sentry/integrations');
-
-    Sentry.init({
-      dsn: env.SENTRY_DSN,
-      environment: env.APP_ENV,
-      integrations: [
-        new CaptureConsole({
-          levels: ['error', 'warn'],
-        }),
-      ],
-      tracesSampleRate: env.APP_ENV === 'production' ? 0.1 : 1.0,
-      release: '1.0.0',
-    });
+    // Sentry is optional - error tracking disabled
+    // To enable: npm install @sentry/react @sentry/integrations
+    console.log('Error tracking configured but Sentry not installed');
+    return;
   } catch (error) {
-    console.error('Failed to initialize Sentry:', error);
+    console.warn('Failed to initialize Sentry:', error);
   }
 };
 
 /**
- * Log custom errors to Sentry
+ * Log custom errors (Sentry not installed)
  */
 export const captureException = (error: Error, context?: Record<string, any>) => {
-  if (!env.ENABLE_ERROR_TRACKING) {
-    console.error('Error:', error, context);
-    return;
-  }
-
-  try {
-    const Sentry = require('@sentry/react');
-    Sentry.captureException(error, { contexts: { custom: context } });
-  } catch (e) {
-    console.error('Error:', error, context);
-  }
+  console.error('Error:', error, context);
 };
 
 export const captureMessage = (message: string, level: 'info' | 'warning' | 'error' = 'info') => {
-  if (!env.ENABLE_ERROR_TRACKING) {
-    console.log(message);
-    return;
-  }
-
-  try {
-    const Sentry = require('@sentry/react');
-    Sentry.captureMessage(message, level);
-  } catch (e) {
-    console.log(message);
-  }
+  console.log(message);
 };

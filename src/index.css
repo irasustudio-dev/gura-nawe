@@ -33,6 +33,19 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .glass-morphism {

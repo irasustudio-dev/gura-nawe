@@ -1,18 +1,18 @@
 import { Toaster, toast } from 'sonner';
+import React from 'react';
+
 export { toast };
 
-export function ToastProvider() {
-  return (
-    <Toaster
-      position="bottom-right"
-      theme="system"
-      richColors
-      closeButton
-      expand={true}
-      visibleToasts={3}
-    />
-  );
-}
+export const ToastProvider: React.FC = () => {
+  return React.createElement(Toaster, {
+    position: 'bottom-right' as const,
+    theme: 'system' as const,
+    richColors: true,
+    closeButton: true,
+    expand: true,
+    visibleToasts: 3,
+  });
+};
 
 export const notifySuccess = (message: string) => 
   toast.success(message);
