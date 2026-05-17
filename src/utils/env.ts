@@ -14,7 +14,6 @@ const getEnv = (key: string, defaultValue?: string): string => {
 export const env = {
   // API Configuration
   API_URL: getEnv('API_URL', 'http://localhost:3000'),
-  GEMINI_API_KEY: getEnv('GEMINI_API_KEY'),
   
   // Analytics
   GOOGLE_ANALYTICS_ID: getEnv('GOOGLE_ANALYTICS_ID'),
