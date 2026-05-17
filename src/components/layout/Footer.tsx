@@ -134,7 +134,7 @@ export default function Footer() {
           © {currentYear} {store.name}. All rights reserved.
         </p>
         <p className="text-xs text-slate-400 dark:text-slate-500 italic">
-          Designed for Digital Entrepreneurs in Rwanda.
+          Designed for Digital Entrepreneurs in Rwanda with IRASU .
         </p>
       </div>
     </footer>
