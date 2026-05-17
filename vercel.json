@@ -2,11 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "env": {
-    "VITE_GOOGLE_ANALYTICS_ID": "@analytics_id",
-    "VITE_SENTRY_DSN": "@sentry_dsn",
-    "VITE_APP_ENV": "production"
-  },
+   
   "regions": ["sfo1"],
   "trailingSlash": false,
   "headers": [
