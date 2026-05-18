@@ -12,7 +12,6 @@
       "tiktok": "https://tiktok.com/@guranawe"
     }
   },
-
   "categories": [
     {
       "id": "youtube",
@@ -45,7 +44,6 @@
       "icon": "Zap"
     }
   ],
-
   "products": [
     {
       "id": "yt-001",
@@ -62,9 +60,9 @@
         "Organic Audience",
         "Lifetime support"
       ],
-      "thumbnail": "https://unsplash.com/photos/o6iCqQehP-I,
-      "isFeatured": true,
-      "isNew": true,
+      "thumbnail": "https://unsplash.com/photos/o6iCqQehP-I",
+"isFeatured": true,
+"isNew": true,
       "rating": 4.9
     },
     {
@@ -125,7 +123,6 @@
       "rating": 5.0
     }
   ],
-
   "services": [
     {
       "id": "ser-001",
