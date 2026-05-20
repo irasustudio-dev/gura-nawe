@@ -24,10 +24,11 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group relative bg-white dark:bg-slate-900 rounded-[32px] p-8 border border-slate-100 dark:border-slate-800 hover:border-violet-500 group transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col h-full"
+      whileHover={{ y: -8 }}
+      className="group relative bg-white dark:bg-slate-900 rounded-[32px] p-8 border border-slate-100 dark:border-slate-800 hover:border-red-500 group transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col h-full"
     >
       {service.isPopular && (
-        <div className="absolute -top-3 left-8 z-10 bg-violet-600 text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg shadow-violet-600/30 ring-4 ring-white dark:ring-slate-900">
+        <div className="absolute -top-3 left-8 z-10 bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg shadow-red-600/30 ring-4 ring-white dark:ring-slate-900">
           Most Popular
         </div>
       )}
@@ -35,7 +36,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       <div className="mb-8 flex items-start justify-between">
         <div className={cn(
           "w-16 h-16 rounded-[22px] flex items-center justify-center transition-all duration-500 group-hover:rotate-6 group-hover:scale-110",
-          service.isPopular ? "bg-violet-100 text-violet-600 dark:bg-violet-900/30" : "bg-slate-100 text-slate-600 dark:bg-slate-800"
+          service.isPopular ? "bg-red-100 text-red-600 dark:bg-red-900/30" : "bg-slate-100 text-slate-600 dark:bg-slate-800"
         )}>
           <Icon size={32} />
         </div>
@@ -48,7 +49,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       </div>
 
       <div className="flex-grow">
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-violet-600 transition-colors">
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
           {service.name}
         </h3>
         <p className="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
@@ -75,7 +76,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="w-full flex items-center justify-center gap-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-4 rounded-2xl font-bold transition-all hover:bg-violet-600 dark:hover:bg-violet-500 hover:text-white group-hover:translate-y-[-4px] active:translate-y-0 shadow-lg"
+        className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 dark:from-red-700 dark:to-orange-700 text-white py-4 rounded-2xl font-bold transition-all group-hover:translate-y-[-4px] active:translate-y-0 shadow-lg shadow-red-600/20"
       >
         <MessageCircle size={20} className="group-hover:animate-bounce" />
         Order on WhatsApp

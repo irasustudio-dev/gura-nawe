@@ -42,14 +42,14 @@ export default function Navbar() {
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-violet-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+          <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
             <ShoppingBag className="text-white w-6 h-6" />
           </div>
           <div>
             <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white block leading-none">
               {marketplaceData.store.name}
             </span>
-            <span className="text-[10px] uppercase tracking-widest font-semibold text-violet-600 dark:text-violet-400">
+            <span className="text-[10px] uppercase tracking-widest font-semibold text-red-600 dark:text-red-400">
               Digital Market
             </span>
           </div>
@@ -62,9 +62,9 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-violet-600 dark:hover:text-violet-400",
+                "text-sm font-medium transition-colors hover:text-red-600 dark:hover:text-red-400",
                 location.pathname === link.path 
-                  ? "text-violet-600 dark:text-violet-400 font-semibold" 
+                  ? "text-red-600 dark:text-red-400 font-semibold" 
                   : "text-slate-600 dark:text-slate-300"
               )}
             >
@@ -118,7 +118,7 @@ export default function Navbar() {
                   className={cn(
                     "flex items-center gap-3 p-3 rounded-xl transition-colors",
                     location.pathname === link.path
-                      ? "bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400"
+                      ? "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
                       : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                   )}
                 >

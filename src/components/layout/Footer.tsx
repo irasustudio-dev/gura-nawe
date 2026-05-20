@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="space-y-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-violet-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
               <ShoppingBag className="text-white w-5 h-5" />
             </div>
             <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white uppercase">
@@ -27,7 +27,7 @@ export default function Footer() {
               href={store.socialLinks.instagram} 
               target="_blank" 
               rel="noreferrer"
-              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-violet-600 hover:text-white dark:hover:bg-violet-600 transition-all shadow-sm"
+              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
             >
               <Instagram size={20} />
             </a>
@@ -35,7 +35,7 @@ export default function Footer() {
               href={store.socialLinks.facebook} 
               target="_blank" 
               rel="noreferrer"
-              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-violet-600 hover:text-white dark:hover:bg-violet-600 transition-all shadow-sm"
+              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
             >
               <Facebook size={20} />
             </a>
@@ -47,22 +47,22 @@ export default function Footer() {
           <h4 className="text-slate-900 dark:text-white font-bold mb-6">Marketplace</h4>
           <ul className="space-y-4">
             <li>
-              <Link to="/marketplace?cat=youtube" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/marketplace?cat=youtube" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 YouTube Channels
               </Link>
             </li>
             <li>
-              <Link to="/marketplace?cat=tiktok" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/marketplace?cat=tiktok" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 TikTok Accounts
               </Link>
             </li>
             <li>
-              <Link to="/marketplace?cat=instagram" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/marketplace?cat=instagram" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 Instagram Accounts
               </Link>
             </li>
             <li>
-              <Link to="/services" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/services" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 Promotion Services
               </Link>
             </li>
@@ -74,12 +74,12 @@ export default function Footer() {
           <h4 className="text-slate-900 dark:text-white font-bold mb-6">Company</h4>
           <ul className="space-y-4">
             <li>
-              <Link to="/about" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/about" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <Link to="/contact" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 Contact Support
               </Link>
             </li>
@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="space-y-4">
           <h4 className="text-slate-900 dark:text-white font-bold mb-6">Contact Us</h4>
           <div className="flex items-start gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-all shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:bg-red-600 group-hover:text-white transition-all shrink-0">
               <Phone size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">
@@ -109,7 +109,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-start gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-all shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:bg-red-600 group-hover:text-white transition-all shrink-0">
               <Mail size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">
@@ -118,7 +118,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex items-start gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-all shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:bg-red-600 group-hover:text-white transition-all shrink-0">
               <MapPin size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">

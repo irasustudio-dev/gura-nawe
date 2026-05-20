@@ -28,16 +28,16 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-xs font-bold uppercase tracking-wider mb-8 shadow-sm border border-violet-200 dark:border-violet-800">
-              <span className="flex h-2 w-2 rounded-full bg-violet-600 animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider mb-8 shadow-sm border border-red-200 dark:border-red-800">
+              <span className="flex h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
               The #1 Digital Assets Marketplace in Rwanda
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
               Buy & Sell <br />
-              <span className="text-violet-600 relative inline-block">
+              <span className="text-red-600 relative inline-block">
                 Digital Assets
-                <svg className="absolute -bottom-2 left-0 w-full h-2 text-violet-400/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <svg className="absolute -bottom-2 left-0 w-full h-2 text-red-400/30" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 25 0 50 5 T 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
                 </svg>
               </span> Safely.
@@ -50,7 +50,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 to="/marketplace"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-violet-600/25 transition-all hover:-translate-y-1 active:translate-y-0"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-red-600/25 transition-all hover:-translate-y-1 active:translate-y-0"
               >
                 <ShoppingBag size={22} />
                 Browse Marketplace
@@ -68,10 +68,16 @@ export default function Hero() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
               {stats.map((stat, i) => (
-                <div key={i} className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="flex flex-col items-center sm:items-start text-center sm:text-left"
+                >
                   <stat.icon className={cn("w-6 h-6 mb-2", stat.color)} />
                   <span className="text-sm font-semibold text-slate-900 dark:text-slate-200">{stat.label}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

@@ -18,7 +18,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group relative bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden border border-slate-100 dark:border-slate-800 hover:border-violet-500/50 dark:hover:border-violet-500/50 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500 flex flex-col h-full"
+      whileHover={{ y: -8 }}
+      className="group relative bg-white dark:bg-slate-900 rounded-[32px] overflow-hidden border border-slate-100 dark:border-slate-800 hover:border-red-500/50 dark:hover:border-red-500/50 hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 flex flex-col h-full"
     >
       {/* Badges */}
       <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
@@ -28,7 +29,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           </span>
         )}
         {product.isNew && (
-          <span className="px-3 py-1 rounded-full bg-violet-600 text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-violet-600/20">
+          <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-600/20">
             NEW
           </span>
         )}
@@ -66,7 +67,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         </div>
 
         <Link to={`/product/${product.id}`}>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 transition-colors leading-tight">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-red-600 transition-colors leading-tight">
             {product.name}
           </h3>
         </Link>
