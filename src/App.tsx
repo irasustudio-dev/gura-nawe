@@ -5,6 +5,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
 import { ToastProvider } from './utils/notifications';
 import Home from './pages/Home';
@@ -21,9 +22,10 @@ export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider>
-        <Router>
-          <ToastProvider />
-          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <LanguageProvider>
+          <Router>
+            <ToastProvider />
+            <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
             <ScrollToTop />
             <Navbar />
             <main>
@@ -37,8 +39,9 @@ export default function App() {
               </Routes>
             </main>
             <Footer />
-          </div>
-        </Router>
+            </div>
+          </Router>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

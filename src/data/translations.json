@@ -1,0 +1,222 @@
+{
+  "kin": {
+    "navigation": {
+      "home": "Aho",
+      "marketplace": "Isoko rya Digital",
+      "services": "Serivisi",
+      "about": "Kubijifatanya",
+      "contact": "Twandikire",
+      "language": "Ururimi"
+    },
+    "hero": {
+      "title": "Gura kandi Ugurishe Ibintu Bya Digital mu Mutekano",
+      "subtitle": "Isoko ry'intambwe cyo kwinjira mu isi y'ikoranabuhanga. Gura YouTube channels, TikTok accounts, Instagram, Facebook, n'ebooks zacu.",
+      "cta": "Wiga Isoko",
+      "cta_secondary": "Kuganiriza ku WhatsApp",
+      "trust": "Ikirenga 1200 abantu mumurongo mwiza",
+      "badge": "Isoko ry'isimu ry'ibintu bya Digital i Rwanda",
+      "browseMarketplace": "Wiga Isoko",
+      "whatsappUs": "WhatsApp Tuhamagare",
+      "secureDeal": "Gukora Neza Mutekano",
+      "sellers": "100+ Abagurishe",
+      "rating": "4.9/5 Igipimo",
+      "instantConnect": "Guhuza Vuba",
+      "newSale": "Gurishe Gishya",
+      "watchHours": "Masaha yo Kureba"
+    },
+    "sell": {
+      "title": "Wifuza Kugurishe Ibintu Bya Digital?",
+      "subtitle": "Twandikire ku WhatsApp kandi tukabikoze vuba",
+      "button": "Gurishe Ikintu Cacu Ubu"
+    },
+    "marketplace": {
+      "title": "Ibintu Bya Digital by'Imbere",
+      "subtitle": "Konti z'YouTube nziza, TikTok, Instagram, Facebook, n'ebooks kigaragara cyiguhinduka.",
+      "viewAll": "Reba Ibintu Byose",
+      "categories": "Ibyiciro"
+    },
+    "categories": {
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "ebooks": "Ebooks"
+    },
+    "productCard": {
+      "price": "Igiciro",
+      "stats": "Imibare",
+      "featured": "Gakubyizwa",
+      "new": "Gishya",
+      "rating": "Igipimo"
+    },
+    "services": {
+      "title": "Ukeneye Ubufasha Kuri Social Media Yawe?",
+      "subtitle": "Tubagira inzira zo gukemura ibibazo bya social media",
+      "youtube_monetization": {
+        "title": "Injiza Amafaranga kuri YouTube",
+        "description": "Tubakuza channel yawe kugera ku 4000 amasaha no 1000 subscribers",
+        "whatsapp": "Hello Gura Nawe, I need help with YouTube channel monetization."
+      },
+      "account_recovery": {
+        "title": "Garuza Account Yawe Yibwe",
+        "description": "Twakugabanya inzira zo guhindura kugira ngo wica konti yawe",
+        "whatsapp": "Hello Gura Nawe, I lost my social media account and need help recovering it."
+      },
+      "growth_fixes": {
+        "title": "Kuzamura no Gukosora TikTok/Facebook/IG",
+        "description": "Tubakuza audience yawe kandi tukosora ibibazo bya compliance",
+        "whatsapp": "Hello Gura Nawe, I need help growing and fixing my social media account."
+      },
+      "copyright_issues": {
+        "title": "Kukemura Ibibazo by'Amategeko",
+        "description": "Tubakusangira mu matembezi yo gutondekeza copyright strikes",
+        "whatsapp": "Hello Gura Nawe, I have copyright or community strike issues to resolve."
+      }
+    },
+    "testimonials": {
+      "title": "Abantu Bacu Baraguhujje"
+    },
+    "footer": {
+      "about": "Kubijifatanya",
+      "contact": "Twandikire",
+      "privacy": "Ubuvuzi bw'Amakuru",
+      "terms": "Amahitamo ya Serivisi",
+      "copyright": "© 2024 GURA NAWE. Ibintu Byose Biremwe.",
+      "marketplace": "Isoko",
+      "youtubeChannels": "YouTube Channels",
+      "tiktokAccounts": "TikTok Accounts",
+      "instagramAccounts": "Instagram Accounts",
+      "promotionServices": "Serivisi zo Kubaka",
+      "company": "Ikigo",
+      "aboutUs": "Kubijifatanya",
+      "contactSupport": "Kontera Ubufasha",
+      "contactUs": "Twandikire",
+      "phone": "Simu",
+      "email": "Imeyili",
+      "location": "Aho Turimo",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "common": {
+      "loading": "Igisubire...",
+      "error": "Habaye Ikosa",
+      "success": "Byagenze Neza",
+      "close": "Sunika",
+      "save": "Kubika",
+      "edit": "Gucika",
+      "delete": "Gusiba",
+      "cancel": "Guhagarika",
+      "back": "Garuka Inyuma"
+    }
+  },
+  "eng": {
+    "navigation": {
+      "home": "Home",
+      "marketplace": "Digital Marketplace",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact",
+      "language": "Language"
+    },
+    "hero": {
+      "title": "Buy & Sell Digital Assets Safely",
+      "subtitle": "The ultimate marketplace for digital assets. Buy and sell YouTube channels, TikTok accounts, Instagram, Facebook, and eBooks with confidence.",
+      "cta": "Explore Marketplace",
+      "cta_secondary": "Chat on WhatsApp",
+      "trust": "Over 1,200 users trading safely",
+      "badge": "The #1 Digital Assets Marketplace in Rwanda",
+      "browseMarketplace": "Browse Marketplace",
+      "whatsappUs": "WhatsApp Us",
+      "secureDeal": "Secure Deals",
+      "sellers": "100+ Sellers",
+      "rating": "4.9/5 Rating",
+      "instantConnect": "Instant Connect",
+      "newSale": "New Sale",
+      "watchHours": "Watch Hours"
+    },
+    "sell": {
+      "title": "Have Digital Assets to Sell?",
+      "subtitle": "Connect with our network of buyers instantly on WhatsApp",
+      "button": "Sell Your Asset Now"
+    },
+    "marketplace": {
+      "title": "Top Digital Assets",
+      "subtitle": "Recently landed premium accounts and monetized channels ready for take-over.",
+      "viewAll": "View All Marketplace",
+      "categories": "Explore Categories"
+    },
+    "categories": {
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "ebooks": "eBooks"
+    },
+    "productCard": {
+      "price": "Price",
+      "stats": "Stats",
+      "featured": "Featured",
+      "new": "New",
+      "rating": "Rating"
+    },
+    "services": {
+      "title": "Need Help with Your Social Media?",
+      "subtitle": "We help solve your social media account challenges",
+      "youtube_monetization": {
+        "title": "Monetize Your Channel",
+        "description": "Grow your channel to 4000 watch hours and 1000 subscribers",
+        "whatsapp": "Hello Gura Nawe, I need help with YouTube channel monetization."
+      },
+      "account_recovery": {
+        "title": "Recover Lost Accounts",
+        "description": "We help you regain access to your hacked or lost accounts",
+        "whatsapp": "Hello Gura Nawe, I lost my social media account and need help recovering it."
+      },
+      "growth_fixes": {
+        "title": "TikTok/Facebook/IG Growth & Fixes",
+        "description": "Grow your audience and fix compliance issues",
+        "whatsapp": "Hello Gura Nawe, I need help growing and fixing my social media account."
+      },
+      "copyright_issues": {
+        "title": "Fix Copyright & Community Strikes",
+        "description": "We guide you through copyright strike appeals and resolutions",
+        "whatsapp": "Hello Gura Nawe, I have copyright or community strike issues to resolve."
+      }
+    },
+    "testimonials": {
+      "title": "What Our Customers Say"
+    },
+    "footer": {
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© 2024 GURA NAWE. All rights reserved.",
+      "marketplace": "Marketplace",
+      "youtubeChannels": "YouTube Channels",
+      "tiktokAccounts": "TikTok Accounts",
+      "instagramAccounts": "Instagram Accounts",
+      "promotionServices": "Promotion Services",
+      "company": "Company",
+      "aboutUs": "About Us",
+      "contactSupport": "Contact Support",
+      "contactUs": "Contact Us",
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "Error occurred",
+      "success": "Success",
+      "close": "Close",
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "back": "Back"
+    }
+  }
+}

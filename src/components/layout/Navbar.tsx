@@ -2,25 +2,28 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Sun, Moon, ShoppingBag, 
-  MessageCircle, Phone, Info, Home as HomeIcon, Zap
+  MessageCircle, Phone, Info, Home as HomeIcon, Zap, Globe
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
+import { t } from '../../utils/i18n';
 import { cn } from '../../utils/utils';
 import marketplaceData from '../../data/marketplace.json';
 
 const navLinks = [
-  { name: 'Home', path: '/', icon: HomeIcon },
-  { name: 'Marketplace', path: '/marketplace', icon: ShoppingBag },
-  { name: 'Services', path: '/services', icon: Zap },
-  { name: 'About', path: '/about', icon: Info },
-  { name: 'Contact', path: '/contact', icon: Phone },
+  { name: 'Home', translationKey: 'navigation.home', path: '/', icon: HomeIcon },
+  { name: 'Marketplace', translationKey: 'navigation.marketplace', path: '/marketplace', icon: ShoppingBag },
+  { name: 'Services', translationKey: 'navigation.services', path: '/services', icon: Zap },
+  { name: 'About', translationKey: 'navigation.about', path: '/about', icon: Info },
+  { name: 'Contact', translationKey: 'navigation.contact', path: '/contact', icon: Phone },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
   const location = useLocation();
 
   useEffect(() => {
@@ -68,12 +71,27 @@ export default function Navbar() {
                   : "text-slate-600 dark:text-slate-300"
               )}
             >
-              {link.name}
+              {t(link.translationKey, language)}
             </Link>
           ))}
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            className={cn(
+              "p-2 rounded-xl font-semibold text-sm transition-all",
+              language === 'kin'
+                ? "bg-red-600 text-white hover:bg-red-700"
+                : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+            )}
+            aria-label="Toggle language"
+            title={language === 'kin' ? 'Switch to English' : 'Guhindura kuri Kinyarwanda'}
+          >
+            {language === 'kin' ? 'RW' : 'EN'}
+          </button>
+
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -123,10 +141,23 @@ export default function Navbar() {
                   )}
                 >
                   <link.icon size={20} />
-                  <span className="font-medium">{link.name}</span>
+                  <span className="font-medium">{t(link.translationKey, language)}</span>
                 </Link>
               ))}
               <hr className="my-2 border-slate-100 dark:border-slate-800" />
+              <div className="flex gap-2 mb-3">
+                <button
+                  onClick={toggleLanguage}
+                  className={cn(
+                    "flex-1 p-3 rounded-xl font-semibold transition-all",
+                    language === 'kin'
+                      ? "bg-red-600 text-white hover:bg-red-700"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  )}
+                >
+                  {language === 'kin' ? 'RW (Kinyarwanda)' : 'EN (English)'}
+                </button>
+              </div>
               <a
                 href={`https://wa.me/${marketplaceData.store.whatsapp}`}
                 target="_blank"

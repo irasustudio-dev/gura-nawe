@@ -1,8 +1,11 @@
 import { useSEO, generateStructuredData } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../utils/i18n';
 import Hero from '../components/home/Hero';
 import CategoryMenu from '../components/home/CategoryMenu';
 import ProductCard from '../components/home/ProductCard';
 import ServiceCard from '../components/home/ServiceCard';
+import Testimonials from '../components/home/Testimonials';
 import SectionHeader from '../components/shared/SectionHeader';
 import marketplaceData from '../data/marketplace.json';
 import { motion } from 'motion/react';
@@ -10,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, ShieldCheck, Zap, Upload } from 'lucide-react';
 
 export default function Home() {
+  const { language } = useLanguage();
   useSEO({
     title: 'GURA NAWE - Buy & Sell Digital Assets Safely | Digital Marketplace Rwanda',
     description: 'Buy and sell social media accounts, YouTube channels, TikTok accounts, Instagram, and digital services. Trusted by 1200+ users in Rwanda. 24/7 WhatsApp support.',
@@ -141,7 +145,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <Testimonials />
+
+      {/* Final CTA Section */}
         <div className="max-w-7xl mx-auto px-4">
           <div className="relative bg-gradient-to-br from-red-600 to-red-700 rounded-[48px] p-12 lg:p-20 overflow-hidden text-center text-white">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-400/30 via-transparent to-transparent opacity-50" />

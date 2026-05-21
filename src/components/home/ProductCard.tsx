@@ -4,6 +4,8 @@ import { motion } from 'motion/react';
 import { Product } from '../../types';
 import { generateWhatsAppLink } from '../../utils/whatsapp';
 import { formatPrice } from '../../utils/utils';
+import { useLanguage } from '../../context/LanguageContext';
+import { t } from '../../utils/i18n';
 import type { FC } from 'react';
 
 interface ProductCardProps {
@@ -11,6 +13,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
+  const { language } = useLanguage();
   const whatsappUrl = generateWhatsAppLink(product.name, product.priceRWF);
 
   return (
@@ -25,12 +28,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
         {product.isFeatured && (
           <span className="px-3 py-1 rounded-full bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-amber-500/20">
-            HOT
+            {t('productCard.featured', language)}
           </span>
         )}
         {product.isNew && (
           <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-600/20">
-            NEW
+            {t('productCard.new', language)}
           </span>
         )}
       </div>
@@ -78,7 +81,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
         <div className="mt-auto pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-4">
           <div>
-            <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">Price</p>
+            <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">{t('productCard.price', language)}</p>
             <p className="text-xl font-black text-slate-900 dark:text-white">
               {formatPrice(product.priceRWF)} <span className="text-xs font-bold opacity-60">RWF</span>
             </p>

@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "quoteKin": "Naguze channel ya YouTube inyungu ihita itangira kwiyongera ako kanya. Gura Nawe ni abizerwa!",
+      "quoteEng": "I bought a YouTube channel and the revenue started growing right away. Gura Nawe is trustworthy!",
+      "author": "Jean Paul K.",
+      "platform": "YouTube",
+      "rating": 5,
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=JeanPaul"
+    },
+    {
+      "id": 2,
+      "quoteKin": "Bamfashije kugarura account yanjye ya Instagram yari yaribwe. Serivisi yabo ni iy'imbere mu gihugu.",
+      "quoteEng": "They helped me recover my hacked Instagram account. Their service is world-class.",
+      "author": "Marie Claire",
+      "platform": "Instagram",
+      "rating": 5,
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=MarieClaire"
+    },
+    {
+      "id": 3,
+      "quoteKin": "Nari maze igihe nshaka uburyo bwo gu-monetiza TikTok yanjye, ariko hano babikoze mu minsi ibiri gusa!",
+      "quoteEng": "I was struggling to monetize my TikTok, but they did it in just two days!",
+      "author": "David Nshimiyimana",
+      "platform": "TikTok",
+      "rating": 5,
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David"
+    },
+    {
+      "id": 4,
+      "quoteKin": "Isoko rya Digital Assets rya mbere mu Rwanda rifite umutekano usesuye. Ndabashimiye cyane!",
+      "quoteEng": "The first truly secure digital asset marketplace in Rwanda. Thank you so much!",
+      "author": "Grace Umuntu",
+      "platform": "Marketplace",
+      "rating": 5,
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace"
+    },
+    {
+      "id": 5,
+      "quoteKin": "Ubufasha bwa WhatsApp buhoraho kandi bugaragaza ubuhanga. Nabatezeho icyizere 100%.",
+      "quoteEng": "The WhatsApp support is instant and professional. I trust them 100%.",
+      "author": "Alain Habimana",
+      "platform": "Services",
+      "rating": 5,
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alain"
+    }
+  ]
+}

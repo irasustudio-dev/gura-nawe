@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import marketplaceData from '../../data/marketplace.json';
+import { useLanguage } from '../../context/LanguageContext';
+import { t } from '../../utils/i18n';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { store } = marketplaceData;
+  const { language } = useLanguage();
 
   return (
     <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300">
@@ -28,6 +31,7 @@ export default function Footer() {
               target="_blank" 
               rel="noreferrer"
               className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
+              title={t('footer.instagram', language)}
             >
               <Instagram size={20} />
             </a>
@@ -36,6 +40,7 @@ export default function Footer() {
               target="_blank" 
               rel="noreferrer"
               className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
+              title={t('footer.facebook', language)}
             >
               <Facebook size={20} />
             </a>
@@ -44,26 +49,26 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-slate-900 dark:text-white font-bold mb-6">Marketplace</h4>
+          <h4 className="text-slate-900 dark:text-white font-bold mb-6">{t('footer.marketplace', language)}</h4>
           <ul className="space-y-4">
             <li>
               <Link to="/marketplace?cat=youtube" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                YouTube Channels
+                {t('footer.youtubeChannels', language)}
               </Link>
             </li>
             <li>
               <Link to="/marketplace?cat=tiktok" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                TikTok Accounts
+                {t('footer.tiktokAccounts', language)}
               </Link>
             </li>
             <li>
               <Link to="/marketplace?cat=instagram" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                Instagram Accounts
+                {t('footer.instagramAccounts', language)}
               </Link>
             </li>
             <li>
               <Link to="/services" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                Promotion Services
+                {t('footer.promotionServices', language)}
               </Link>
             </li>
           </ul>
@@ -71,26 +76,26 @@ export default function Footer() {
 
         {/* Support */}
         <div>
-          <h4 className="text-slate-900 dark:text-white font-bold mb-6">Company</h4>
+          <h4 className="text-slate-900 dark:text-white font-bold mb-6">{t('footer.company', language)}</h4>
           <ul className="space-y-4">
             <li>
               <Link to="/about" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                About Us
+                {t('footer.aboutUs', language)}
               </Link>
             </li>
             <li>
               <Link to="/contact" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                Contact Support
+                {t('footer.contactSupport', language)}
               </Link>
             </li>
             <li>
               <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
-                Privacy Policy
+                {t('footer.privacy', language)}
               </a>
             </li>
             <li>
               <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
-                Terms of Service
+                {t('footer.terms', language)}
               </a>
             </li>
           </ul>
@@ -98,13 +103,13 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="space-y-4">
-          <h4 className="text-slate-900 dark:text-white font-bold mb-6">Contact Us</h4>
+          <h4 className="text-slate-900 dark:text-white font-bold mb-6">{t('footer.contactUs', language)}</h4>
           <div className="flex items-start gap-3 group">
             <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:bg-red-600 group-hover:text-white transition-all shrink-0">
               <Phone size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">
-              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Phone</p>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('footer.phone', language)}</p>
               <p className="text-sm font-medium">{store.phone}</p>
             </div>
           </div>
@@ -113,7 +118,7 @@ export default function Footer() {
               <Mail size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">
-              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Email</p>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('footer.email', language)}</p>
               <p className="text-sm font-medium">{store.email}</p>
             </div>
           </div>
@@ -122,7 +127,7 @@ export default function Footer() {
               <MapPin size={16} />
             </div>
             <div className="text-slate-500 dark:text-slate-400">
-              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Location</p>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('footer.location', language)}</p>
               <p className="text-sm font-medium">{store.address}</p>
             </div>
           </div>
@@ -131,7 +136,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          © {currentYear} {store.name}. All rights reserved.
+          {t('footer.copyright', language)}
         </p>
         <p className="text-xs text-slate-400 dark:text-slate-500 italic">
           Designed for Digital Entrepreneurs in Rwanda with IRASU .
