@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Star } from 'lucide-react';
+import { Star, ShieldCheck } from 'lucide-react';
 import testimonialsData from '../../data/testimonials.json';
 import { useLanguage } from '../../context/LanguageContext';
 import { t } from '../../utils/i18n';
@@ -15,13 +15,13 @@ export default function Testimonials() {
     <section className="py-20 bg-white dark:bg-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-12">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            {language === 'kin' ? 'Abantu Bacu Baraguhujje' : 'What Our Customers Say'}
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">
+            {t('testimonials.title', language)}
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-lg">
+          <p className="text-slate-600 dark:text-slate-300 text-lg max-w-2xl mx-auto">
             {language === 'kin'
-              ? 'Mbere y'ibibazo, andika ku WhatsApp +250 722 248 567'
-              : 'Join over 1,200 satisfied customers trading with confidence'}
+              ? 'Abakiriya bateguye bazirikana ubunyamwuga bwacu. Chat kuri WhatsApp igihe cyose.'
+              : 'Trusted by creators across Rwanda for secure digital trading.'}
           </p>
         </div>
       </div>
@@ -34,17 +34,7 @@ export default function Testimonials() {
 
         {/* Scrolling container */}
         <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            initial={{ x: 0 }}
-            animate={{ x: '-50%' }}
-            transition={{
-              duration: 40,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            style={{ willChange: 'transform' }}
-          >
+          <div className="marquee flex gap-6">
             {displayList.map((testimonial, idx) => (
               <motion.div
                 key={`${testimonial.id}-${idx}`}
@@ -53,14 +43,19 @@ export default function Testimonials() {
               >
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-slate-200 dark:border-slate-700 hover:border-red-500 dark:hover:border-red-400 h-full flex flex-col justify-between">
                   {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={18}
-                        className="fill-red-600 text-red-600"
-                      />
-                    ))}
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-red-600/10 text-red-700 px-3 py-1 text-xs font-bold uppercase tracking-[0.25em] shadow-sm">
+                      <ShieldCheck size={14} /> {language === 'kin' ? 'Verified' : 'Verified'}
+                    </span>
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={18}
+                          className="fill-red-600 text-red-600"
+                        />
+                      ))}
+                    </div>
                   </div>
 
                   {/* Quote */}
@@ -90,7 +85,7 @@ export default function Testimonials() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 

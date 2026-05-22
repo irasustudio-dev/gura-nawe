@@ -52,7 +52,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
             )}
             <button
               onClick={this.reset}
-              className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-xl font-bold transition-colors"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-bold transition-colors"
             >
               <RotateCw size={18} />
               Try Again

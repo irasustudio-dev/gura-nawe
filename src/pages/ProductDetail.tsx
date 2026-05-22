@@ -15,9 +15,9 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="pt-40 pb-20 text-center">
+        <div className="pt-40 pb-20 text-center">
         <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
-        <Link to="/marketplace" className="text-violet-600 hover:underline">Return to Marketplace</Link>
+        <Link to="/marketplace" className="text-red-600 hover:underline">Return to Marketplace</Link>
       </div>
     );
   }
@@ -30,9 +30,9 @@ export default function ProductDetail() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumbs */}
         <div className="flex items-center gap-2 text-sm text-slate-400 mb-8 border-b border-slate-100 dark:border-slate-800 pb-4">
-          <Link to="/" className="hover:text-violet-600">Home</Link>
+          <Link to="/" className="hover:text-red-600">Home</Link>
           <ChevronRight size={14} />
-          <Link to="/marketplace" className="hover:text-violet-600">Marketplace</Link>
+          <Link to="/marketplace" className="hover:text-red-600">Marketplace</Link>
           <ChevronRight size={14} />
           <span className="text-slate-600 dark:text-slate-300 font-medium">{product.name}</span>
         </div>
@@ -60,7 +60,7 @@ export default function ProductDetail() {
 
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-violet-500 transition-all opacity-60 hover:opacity-100">
+                <div key={i} className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-red-500 transition-all opacity-60 hover:opacity-100">
                   <img src={product.thumbnail} className="w-full h-full object-cover" />
                 </div>
               ))}
@@ -74,7 +74,7 @@ export default function ProductDetail() {
               animate={{ opacity: 1, x: 0 }}
               className="sticky top-32"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-widest mb-6">
                 {product.category} Market
               </div>
               
@@ -133,7 +133,7 @@ export default function ProductDetail() {
                   Buy on WhatsApp
                 </a>
                 
-                <button className="flex items-center justify-center gap-2 text-slate-500 hover:text-violet-600 transition-colors font-bold text-sm">
+                <button className="flex items-center justify-center gap-2 text-slate-500 hover:text-red-600 transition-colors font-bold text-sm">
                   <Share2 size={18} /> Share Product Link
                 </button>
               </div>
@@ -154,7 +154,7 @@ export default function ProductDetail() {
         <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
              <div className="flex border-b border-slate-100 dark:border-slate-800 mb-10 overflow-x-auto scrollbar-none">
-                <button className="px-8 py-4 border-b-2 border-violet-600 text-violet-600 font-bold whitespace-nowrap">Description</button>
+                <button className="px-8 py-4 border-b-2 border-red-600 text-red-600 font-bold whitespace-nowrap">Description</button>
                 <button className="px-8 py-4 text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold whitespace-nowrap">Features list</button>
                 <button className="px-8 py-4 text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold whitespace-nowrap">Reviews (12)</button>
              </div>
@@ -184,7 +184,7 @@ export default function ProductDetail() {
           <div className="mt-32">
             <div className="flex justify-between items-end mb-12">
                <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Related for you</h2>
-               <Link to="/marketplace" className="text-violet-600 font-bold hover:underline">View All Category</Link>
+               <Link to="/marketplace" className="text-red-600 font-bold hover:underline">View All Category</Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedProducts.map((p) => (

@@ -19,11 +19,11 @@ export default function About() {
         {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <div>
-             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 text-xs font-bold uppercase tracking-widest mb-6">
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-widest mb-6">
                 Our Story
              </div>
              <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-8 leading-tight">
-               Empowering African <br /> <span className="text-violet-600">Digital Creators.</span>
+               Empowering African <br /> <span className="text-red-600">Digital Creators.</span>
              </h1>
              <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                <p>
@@ -44,7 +44,7 @@ export default function About() {
                 alt="Our Team"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
                />
-               <div className="absolute inset-0 bg-violet-600/10" />
+            <div className="absolute inset-0 bg-red-600/10" />
             </div>
             
             {/* Absolute floating bits */}
@@ -59,7 +59,7 @@ export default function About() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {stats.map((s, i) => (
             <div key={i} className="p-10 rounded-[40px] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-center flex flex-col items-center">
-              <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-800 text-violet-600 dark:text-violet-400 flex items-center justify-center mb-6 shadow-sm">
+              <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-800 text-red-600 dark:text-red-400 flex items-center justify-center mb-6 shadow-sm">
                 <s.icon size={32} />
               </div>
               <h3 className="text-4xl font-black text-slate-900 dark:text-white mb-2">{s.value}</h3>
@@ -95,16 +95,16 @@ export default function About() {
         </div>
 
         {/* Connect Box */}
-        <div className="bg-slate-900 dark:bg-violet-600 rounded-[56px] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 text-white">
+        <div className="bg-slate-900 dark:bg-red-600 rounded-[56px] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 text-white">
           <div className="max-w-md">
             <h2 className="text-4xl font-black mb-6">Work with the best digital team.</h2>
-            <p className="text-slate-400 dark:text-violet-100 text-lg mb-8 leading-relaxed">
+            <p className="text-slate-400 dark:text-red-100 text-lg mb-8 leading-relaxed">
               Whether you are looking to sell your channel or buy growth services, our team is ready to help you 24/7.
             </p>
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
-                 {[1,2,3,4].map(i => (
-                    <div key={i} className="w-12 h-12 rounded-full border-4 border-slate-900 dark:border-violet-600 bg-slate-800 flex items-center justify-center overflow-hidden">
+                  {[1,2,3,4].map(i => (
+                    <div key={i} className="w-12 h-12 rounded-full border-4 border-slate-900 dark:border-red-600 bg-slate-800 flex items-center justify-center overflow-hidden">
                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="user" />
                     </div>
                  ))}
@@ -121,7 +121,7 @@ export default function About() {
              >
                <MessageCircle size={28} /> Chat on WhatsApp
              </a>
-             <div className="flex items-center justify-center gap-4 text-slate-400 dark:text-violet-200">
+             <div className="flex items-center justify-center gap-4 text-slate-400 dark:text-red-200">
                 <div className="flex items-center gap-1.5"><MapPin size={16} /> Kigali, Rwanda</div>
                 <div className="h-4 w-px bg-white/20" />
                 <div className="flex items-center gap-1.5"><CheckCircle2 size={16} /> Certified Market</div>

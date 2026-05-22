@@ -30,21 +30,21 @@ export default function Home() {
       <Hero />
       
       {/* Sell Your Asset CTA - Prominent Button */}
-      <section className="py-8 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 border-y border-red-200 dark:border-red-900/30">
+      <section className="py-8 bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/10 dark:to-red-900/10 border-y border-red-200 dark:border-red-900/30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Have Digital Assets to Sell?</h3>
-              <p className="text-slate-600 dark:text-slate-300">Connect with our network of buyers instantly on WhatsApp</p>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('sell.title', language)}</h3>
+              <p className="text-slate-600 dark:text-slate-300">{t('sell.subtitle', language)}</p>
             </div>
             <a
               href={sellLink}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg shadow-red-600/40 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg shadow-xl shadow-red-600/30 transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
             >
               <Upload size={22} />
-              Sell Your Asset Now
+              {t('sell.button', language)}
             </a>
           </div>
         </div>
@@ -57,16 +57,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <SectionHeader 
-              title="Top Digital Assets" 
-              subtitle="Recently landed premium accounts and monetized channels ready for take-over."
+              title={t('marketplace.title', language)} 
+              subtitle={t('marketplace.subtitle', language)}
               className="mb-0"
             />
-            <Link to="/marketplace" className="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 font-bold flex items-center gap-2 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm">
-              Explore Marketplace <ArrowRight size={18} />
+            <Link to="/marketplace" className="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 font-bold flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm">
+              {t('marketplace.viewAll', language)} <ArrowRight size={18} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, idx) => (
               <motion.div
                 key={product.id}
@@ -148,6 +148,7 @@ export default function Home() {
       <Testimonials />
 
       {/* Final CTA Section */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="relative bg-gradient-to-br from-red-600 to-red-700 rounded-[48px] p-12 lg:p-20 overflow-hidden text-center text-white">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-400/30 via-transparent to-transparent opacity-50" />

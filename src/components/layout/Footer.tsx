@@ -23,21 +23,21 @@ export default function Footer() {
             </span>
           </Link>
           <p className="text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs">
-            {store.tagline}. The most trusted marketplace for African digital creators.
+            {t('footer.tagline', language)}
           </p>
-          <div className="flex items-center gap-4">
-            <a 
-              href={store.socialLinks.instagram} 
-              target="_blank" 
+          <div className="flex items-center gap-3">
+            <a
+              href={store.socialLinks.instagram}
+              target="_blank"
               rel="noreferrer"
               className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
               title={t('footer.instagram', language)}
             >
               <Instagram size={20} />
             </a>
-            <a 
-              href={store.socialLinks.facebook} 
-              target="_blank" 
+            <a
+              href={store.socialLinks.facebook}
+              target="_blank"
               rel="noreferrer"
               className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm"
               title={t('footer.facebook', language)}
@@ -89,12 +89,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+              <a href="/privacy" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 {t('footer.privacy', language)}
               </a>
             </li>
             <li>
-              <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <a href="/contact" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 {t('footer.terms', language)}
               </a>
             </li>

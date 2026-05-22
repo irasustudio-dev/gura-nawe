@@ -14,8 +14,8 @@ export const SkeletonLoader = () => (
 export const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
     <div className="text-center">
-      <div className="w-16 h-16 bg-violet-100 dark:bg-violet-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-        <Loader2 className="w-8 h-8 text-violet-600 dark:text-violet-400 animate-spin" />
+      <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+        <Loader2 className="w-8 h-8 text-red-600 dark:text-red-400 animate-spin" />
       </div>
       <p className="text-slate-600 dark:text-slate-400 font-medium">Loading...</p>
     </div>

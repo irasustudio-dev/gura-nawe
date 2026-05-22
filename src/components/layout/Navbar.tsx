@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, Sun, Moon, ShoppingBag, 
-  MessageCircle, Phone, Info, Home as HomeIcon, Zap, Globe
+  MessageCircle, Phone, Info, Home as HomeIcon, Zap
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
@@ -81,10 +81,10 @@ export default function Navbar() {
           <button
             onClick={toggleLanguage}
             className={cn(
-              "p-2 rounded-xl font-semibold text-sm transition-all",
+              "px-3 py-2 rounded-2xl font-semibold text-sm transition-all border border-red-600",
               language === 'kin'
                 ? "bg-red-600 text-white hover:bg-red-700"
-                : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                : "bg-white/90 text-red-600 hover:bg-red-50 dark:bg-slate-800 dark:text-red-400 dark:hover:bg-slate-700"
             )}
             aria-label="Toggle language"
             title={language === 'kin' ? 'Switch to English' : 'Guhindura kuri Kinyarwanda'}
@@ -104,10 +104,10 @@ export default function Navbar() {
             href={`https://wa.me/${marketplaceData.store.whatsapp}`}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex items-center gap-2 bg-[#0cf862]/10 text-[#07c24c] hover:bg-[#0cf862]/20 px-4 py-2 rounded-xl font-semibold transition-all border border-[#0cf862]/20"
+            className="hidden sm:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-2xl font-semibold transition-all shadow-lg shadow-red-600/20"
           >
             <MessageCircle size={18} />
-            <span className="text-sm">WhatsApp</span>
+            <span className="text-sm">{t('hero.whatsappUs', language)}</span>
           </a>
 
           <button

@@ -42,13 +42,13 @@ export default function Marketplace() {
         <div className="flex flex-col lg:flex-row gap-6 mb-12">
           {/* Search Bar */}
           <div className="flex-grow group relative">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-violet-500 transition-colors">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-red-500 transition-colors">
               <Search size={22} />
             </div>
             <input 
               type="text" 
               placeholder="Search YouTube channels, TikTok accounts, eBooks..."
-              className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500 transition-all shadow-sm"
+              className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all shadow-sm"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -68,7 +68,7 @@ export default function Marketplace() {
               className={cn(
                 "px-6 py-4 rounded-2xl font-bold transition-all whitespace-nowrap whitespace-nowrap",
                 activeCategory === 'all' 
-                  ? "bg-violet-600 text-white shadow-xl shadow-violet-600/20" 
+                  ? "bg-red-600 text-white shadow-xl shadow-red-600/20" 
                   : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
               )}
             >
@@ -81,7 +81,7 @@ export default function Marketplace() {
                 className={cn(
                   "px-6 py-4 rounded-2xl font-bold transition-all whitespace-nowrap",
                   activeCategory === cat.id
-                    ? "bg-violet-600 text-white shadow-xl shadow-violet-600/20"
+                    ? "bg-red-600 text-white shadow-xl shadow-red-600/20"
                     : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
                 )}
               >
@@ -97,7 +97,7 @@ export default function Marketplace() {
             Showing <span className="text-slate-900 dark:text-white font-bold">{filteredProducts.length}</span> assets
           </p>
           <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800">
-             <button className="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm text-violet-600"><LayoutGrid size={18} /></button>
+             <button className="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm text-red-600"><LayoutGrid size={18} /></button>
              <button className="p-2 rounded-lg text-slate-400"><List size={18} /></button>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Marketplace() {
             <p className="text-slate-500">We couldn't find any assets matching your filters. Try a different search or category.</p>
             <button 
               onClick={() => {setSearchQuery(''); handleCategoryChange('all');}}
-              className="mt-6 text-violet-600 font-bold hover:underline"
+              className="mt-6 text-red-600 font-bold hover:underline"
             >
               Clear all filters
             </button>

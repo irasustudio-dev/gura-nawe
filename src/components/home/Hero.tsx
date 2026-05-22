@@ -10,10 +10,10 @@ import { useLanguage } from '../../context/LanguageContext';
 import { t } from '../../utils/i18n';
 
 const stats = [
-  { icon: ShieldCheck, label: 'hero.secureDeal', color: 'text-emerald-500' },
-  { icon: Users, label: 'hero.sellers', color: 'text-blue-500' },
-  { icon: Star, label: 'hero.rating', color: 'text-amber-500' },
-  { icon: Zap, label: 'hero.instantConnect', color: 'text-violet-500' },
+  { icon: ShieldCheck, label: 'hero.secureDeal', color: 'text-red-600' },
+  { icon: Users, label: 'hero.sellers', color: 'text-slate-700 dark:text-slate-200' },
+  { icon: Star, label: 'hero.rating', color: 'text-red-500' },
+  { icon: Zap, label: 'hero.instantConnect', color: 'text-red-600' },
 ];
 
 export default function Hero() {
@@ -21,8 +21,8 @@ export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Blobs */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -92,18 +92,18 @@ export default function Hero() {
             className="relative"
           >
             {/* Visual Elements */}
-            <div className="relative z-10 w-full aspect-square max-w-lg mx-auto rounded-[48px] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800 rotate-3">
+            <div className="relative z-10 w-full aspect-square max-w-lg mx-auto rounded-[48px] overflow-hidden shadow-[0_40px_120px_rgba(220,38,38,0.18)] border-8 border-white dark:border-slate-800 rotate-3">
               <img 
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" 
-                alt="Digital Assets"
+                src="https://images.unsplash.com/photo-1559027615-0f4b5ea4b7bb?q=80&w=1200&auto=format&fit=crop"
+                alt="Digital growth 3D"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                 <div className="flex items-center gap-2 mb-2">
-                  <PlayCircle className="text-red-500 fill-current" />
+                  <PlayCircle className="text-red-500" />
                   <span className="font-bold text-lg">{t('hero.newSale', language)}</span>
                 </div>
-                <p className="text-sm text-white/80">Available now. 100K+ Organic reach.</p>
+                <p className="text-sm text-white/80">{language === 'kin' ? 'Imishinga ikomeye y’ikoranabuhanga ku isoko rya Gura Nawe' : 'Premium digital growth assets for modern creators.'}</p>
               </div>
             </div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-10 -left-10 z-20 bg-violet-600 p-4 rounded-3xl shadow-xl shadow-violet-600/30 flex items-center gap-4 text-white"
+              className="absolute -bottom-10 -left-10 z-20 bg-red-600 p-4 rounded-3xl shadow-xl shadow-red-600/30 flex items-center gap-4 text-white"
             >
               <div className="text-right">
                 <p className="text-xl font-black">4000Hrs</p>
