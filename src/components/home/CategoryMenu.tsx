@@ -18,9 +18,9 @@ export default function CategoryMenu() {
   return (
     <section className="py-16 sm:py-20 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-10 md:mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-2">
               {t('marketplace.title', language)}
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl">
@@ -35,7 +35,7 @@ export default function CategoryMenu() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8">
           {marketplaceData.categories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Zap;
             return (

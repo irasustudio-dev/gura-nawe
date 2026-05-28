@@ -37,7 +37,7 @@ export default function ProductDetail() {
           <span className="text-slate-600 dark:text-slate-300 font-medium">{product.name}</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* Gallery */}
           <div className="lg:col-span-7 space-y-6">
             <motion.div 
@@ -58,7 +58,7 @@ export default function ProductDetail() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 cursor-pointer hover:border-red-500 transition-all opacity-60 hover:opacity-100">
                   <img src={product.thumbnail} className="w-full h-full object-cover" />
@@ -151,7 +151,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Tabs / Content Section */}
-        <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="mt-16 md:mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           <div className="lg:col-span-8">
              <div className="flex border-b border-slate-100 dark:border-slate-800 mb-10 overflow-x-auto scrollbar-none">
                 <button className="px-8 py-4 border-b-2 border-red-600 text-red-600 font-bold whitespace-nowrap">Description</button>
@@ -186,7 +186,7 @@ export default function ProductDetail() {
                <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Related for you</h2>
                <Link to="/marketplace" className="text-red-600 font-bold hover:underline">View All Category</Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               {relatedProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}

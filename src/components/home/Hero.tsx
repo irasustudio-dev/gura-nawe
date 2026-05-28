@@ -19,13 +19,13 @@ const stats = [
 export default function Hero() {
   const { language } = useLanguage();
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
-      {/* Background Blobs */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
+      {/* Background Blobs - Hidden on mobile, shown on desktop */}
+      <div className="hidden lg:block absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none will-change-none" />
+      <div className="hidden lg:block absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none will-change-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ export default function Hero() {
               {t('hero.badge', language)}
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-4 sm:mb-6">
               {t('hero.title', language).split(' ').slice(0, 2).join(' ')} <br />
               <span className="text-red-600 relative inline-block">
                 {t('hero.title', language).split(' ').slice(2).join(' ')}
@@ -46,7 +46,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-lg mb-8 sm:mb-10 leading-relaxed">
               {t('hero.subtitle', language)}
             </p>
 
@@ -69,7 +69,7 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
               {stats.map((stat, i) => (
                <motion.div 
                   key={i}
@@ -92,7 +92,7 @@ export default function Hero() {
             className="relative"
           >
             {/* Visual Elements */}
-            <div className="relative z-10 w-full aspect-square max-w-lg mx-auto rounded-[48px] overflow-hidden shadow-[0_40px_120px_rgba(220,38,38,0.18)] border-8 border-white dark:border-slate-800 rotate-3">
+            <div className="relative z-10 w-full aspect-video sm:aspect-square max-w-md sm:max-w-lg mx-auto rounded-3xl sm:rounded-[48px] overflow-hidden shadow-lg sm:shadow-[0_40px_120px_rgba(220,38,38,0.18)] border-4 sm:border-8 border-white dark:border-slate-800 sm:rotate-3">
               <img 
                 src="https://images.unsplash.com/photo-1559027615-0f4b5ea4b7bb?q=80&w=1200&auto=format&fit=crop"
                 alt="Digital growth 3D"
@@ -107,11 +107,11 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Cards */}
-            <motion.div 
+            {/* Floating Cards - Hidden on mobile */}
+            <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 z-20 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3"
+              className="hidden lg:block absolute -top-6 -right-6 z-20 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3 will-change-transform"
             >
               <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center text-emerald-600">
                 <ArrowRight size={20} />
@@ -122,10 +122,10 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-10 -left-10 z-20 bg-red-600 p-4 rounded-3xl shadow-xl shadow-red-600/30 flex items-center gap-4 text-white"
+              className="hidden lg:block absolute -bottom-10 -left-10 z-20 bg-red-600 p-4 rounded-3xl shadow-xl shadow-red-600/30 flex items-center gap-4 text-white will-change-transform"
             >
               <div className="text-right">
                 <p className="text-xl font-black">4000Hrs</p>
