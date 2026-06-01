@@ -41,18 +41,21 @@ export default function Navbar() {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-3",
-      scrolled ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg py-2" : "bg-transparent"
+      scrolled ? "glass shadow-soft-lg" : "bg-transparent"
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+        <Link to="/" className="flex items-center gap-2 group z-10">
+          <motion.div 
+            whileHover={{ rotate: 12 }}
+            className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-red-glow"
+          >
             <ShoppingBag className="text-white w-6 h-6" />
-          </div>
+          </motion.div>
           <div>
-            <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white block leading-none">
+            <span className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white block leading-none">
               {marketplaceData.store.name}
             </span>
-            <span className="text-[10px] uppercase tracking-widest font-semibold text-red-600 dark:text-red-400">
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest font-semibold text-red-600 dark:text-red-400">
               Digital Market
             </span>
           </div>
@@ -65,10 +68,10 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-red-600 dark:hover:text-red-400",
+                "text-sm font-medium transition-colors duration-200",
                 location.pathname === link.path 
                   ? "text-red-600 dark:text-red-400 font-semibold" 
-                  : "text-slate-600 dark:text-slate-300"
+                  : "text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400"
               )}
             >
               {t(link.translationKey, language)}
@@ -76,46 +79,52 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Language Switcher */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={toggleLanguage}
             className={cn(
-              "px-3 py-2 rounded-2xl font-semibold text-sm transition-all border border-red-600",
+              "px-3 py-2 rounded-xl font-semibold text-xs sm:text-sm transition-all border",
               language === 'kin'
-                ? "bg-red-600 text-white hover:bg-red-700"
-                : "bg-white/90 text-red-600 hover:bg-red-50 dark:bg-slate-800 dark:text-red-400 dark:hover:bg-slate-700"
+                ? "bg-red-600 text-white hover:bg-red-700 border-red-700"
+                : "bg-white/60 dark:bg-slate-800/60 text-red-600 dark:text-red-400 border-slate-200 dark:border-slate-700 hover:bg-white/80 dark:hover:bg-slate-700/80"
             )}
             aria-label="Toggle language"
             title={language === 'kin' ? 'Switch to English' : 'Guhindura kuri Kinyarwanda'}
           >
             {language === 'kin' ? 'RW' : 'EN'}
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ rotate: 20 }}
+            whileTap={{ scale: 0.95 }}
             onClick={toggleTheme}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            className="p-2 rounded-xl bg-slate-100/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors backdrop-blur-sm"
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
+            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          </motion.button>
           
           <a
             href={`https://wa.me/${marketplaceData.store.whatsapp}`}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-2xl font-semibold transition-all shadow-lg shadow-red-600/20"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-[#0cf862] hover:bg-[#07c24c] text-white px-3 sm:px-4 py-2 rounded-xl font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
           >
-            <MessageCircle size={18} />
-            <span className="text-sm">{t('hero.whatsappUs', language)}</span>
+            <MessageCircle size={16} />
+            <span className="hidden md:inline">WhatsApp</span>
           </a>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+            className="md:hidden p-2 rounded-xl bg-slate-100/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors backdrop-blur-sm"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -123,50 +132,60 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-slate-900 border-t dark:border-slate-800 mt-3 rounded-2xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, height: 0, y: -10 }}
+            animate={{ opacity: 1, height: 'auto', y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass mt-3 rounded-2xl overflow-hidden"
           >
             <div className="p-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  className={cn(
-                    "flex items-center gap-3 p-3 rounded-xl transition-colors",
-                    location.pathname === link.path
-                      ? "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
-                      : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
-                  )}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
                 >
-                  <link.icon size={20} />
-                  <span className="font-medium">{t(link.translationKey, language)}</span>
-                </Link>
+                  <Link
+                    to={link.path}
+                    className={cn(
+                      "flex items-center gap-3 p-3 rounded-lg transition-all duration-200",
+                      location.pathname === link.path
+                        ? "bg-red-500/20 text-red-600 dark:text-red-400 font-medium"
+                        : "text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-800/50"
+                    )}
+                  >
+                    <link.icon size={18} />
+                    <span className="font-medium text-sm">{t(link.translationKey, language)}</span>
+                  </Link>
+                </motion.div>
               ))}
               <hr className="my-2 border-slate-100 dark:border-slate-800" />
               <div className="flex gap-2 mb-3">
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
                   onClick={toggleLanguage}
                   className={cn(
-                    "flex-1 p-3 rounded-xl font-semibold transition-all",
+                    "flex-1 p-3 rounded-lg font-semibold transition-all",
                     language === 'kin'
                       ? "bg-red-600 text-white hover:bg-red-700"
                       : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                   )}
                 >
-                  {language === 'kin' ? 'RW (Kinyarwanda)' : 'EN (English)'}
-                </button>
+                  {language === 'kin' ? 'RW' : 'EN'}
+                </motion.button>
               </div>
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.95 }}
                 href={`https://wa.me/${marketplaceData.store.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#0cf862] text-white p-3 rounded-xl font-bold shadow-lg shadow-emerald-500/20"
+                className="flex items-center justify-center gap-2 bg-[#0cf862] hover:bg-[#07c24c] text-white p-3 rounded-lg font-bold shadow-lg shadow-emerald-500/20 transition-all text-sm"
               >
-                <MessageCircle size={20} />
-                <span>Contact on WhatsApp</span>
-              </a>
+                <MessageCircle size={18} />
+                <span>WhatsApp</span>
+              </motion.a>
             </div>
           </motion.div>
         )}

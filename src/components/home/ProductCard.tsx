@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Star, TrendingUp, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Star, TrendingUp, MessageCircle, ArrowUpRight, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Product } from '../../types';
 import { generateWhatsAppLink } from '../../utils/whatsapp';
@@ -21,63 +21,98 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -12 }}
-      className="group relative bg-white dark:bg-slate-900 rounded-3xl sm:rounded-[32px] overflow-hidden border border-slate-100 dark:border-slate-800 hover:border-red-500/40 dark:hover:border-red-500/40 hover:shadow-2xl hover:shadow-red-500/15 dark:hover:shadow-red-600/20 transition-all duration-500 flex flex-col h-full will-change-transform"
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="group relative h-full overflow-hidden"
     >
-      {/* Badges */}
-      <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 flex flex-wrap gap-2">
-        {product.isFeatured && (
-          <span className="px-2.5 sm:px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-amber-500/30">
-            {t('productCard.featured', language)}
-          </span>
-        )}
-        {product.isNew && (
-          <span className="px-2.5 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-600 to-red-700 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-600/30">
-            {t('productCard.new', language)}
-          </span>
-        )}
-      </div>
-
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={product.thumbnail}
-          alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        <Link
-          to={`/product/${product.id}`}
-          className="absolute inset-0 z-20 flex items-center justify-center translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500"
-        >
-          <div className="bg-white text-slate-900 px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl font-bold flex items-center gap-2 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all">
-            View Details <ArrowUpRight size={16} />
-          </div>
-        </Link>
-      </div>
-
-      {/* Content */}
-      <div className="p-4 sm:p-6 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-          <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-            {product.platform}
-          </span>
-          <div className="flex items-center gap-1 text-amber-500 font-bold text-xs ml-auto">
-            <Star size={12} fill="currentColor" />
-            {product.rating}
-          </div>
+      <div className="card-premium relative flex flex-col h-full overflow-hidden shadow-soft-lg hover:shadow-red-glow-lg card-hover-lift">
+        {/* Gradient Accent Top */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-2xl pointer-events-none" />
+        
+        {/* Badges */}
+        <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-20 flex flex-wrap gap-2">
+          {product.isFeatured && (
+            <motion.span 
+              animate={{ y: [0, -2, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="px-2.5 sm:px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-amber-500/30 inline-flex items-center gap-1"
+            >
+              <Zap size={10} className="hidden sm:block" />
+              {t('productCard.featured', language)}
+            </motion.span>
+          )}
+          {product.isNew && (
+            <span className="px-2.5 sm:px-3 py-1.5 rounded-full bg-gradient-to-r from-red-600 to-red-700 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-600/30">
+              {t('productCard.new', language)}
+            </span>
+          )}
+          {product.stats && (
+            <span className="px-2.5 sm:px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-[9px] sm:text-[10px] font-bold">
+              {product.stats}
+            </span>
+          )}
         </div>
 
-        <Link to={`/product/${product.id}`}>
-          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-red-600 transition-colors leading-tight line-clamp-2">
-            {product.name}
-          </h3>
-        </Link>
+        {/* Trending Label */}
+        {product.isFeatured && (
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg bg-white/90 dark:bg-slate-800/90 shadow-lg backdrop-blur-sm">
+            <TrendingUp size={12} className="text-red-600 animate-pulse-subtle" />
+            <span className="text-[9px] sm:text-[10px] font-bold text-red-600 dark:text-red-400">Trending</span>
+          </div>
+        )}
 
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3 sm:mb-4 line-clamp-2">
-          {product.description}
-        </p>
+        {/* Image Container */}
+        <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img
+            src={product.thumbnail}
+            alt={product.name}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* CTA Overlay on Hover */}
+          <Link
+            to={`/product/${product.id}`}
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0"
+          >
+            <motion.div 
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold flex items-center gap-2 shadow-2xl"
+            >
+              View Details <ArrowUpRight size={16} className="text-red-600" />
+            </motion.div>
+          </Link>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 sm:p-5 flex flex-col flex-grow relative z-10">
+          {/* Platform & Rating */}
+          <div className="flex items-center justify-between mb-2 sm:mb-3 gap-2">
+            <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+              {product.platform}
+            </span>
+            {product.rating && (
+              <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-50 dark:bg-amber-900/20">
+                <Star size={13} className="text-amber-500" fill="currentColor" />
+                <span className="text-amber-700 dark:text-amber-300 font-bold text-[10px] sm:text-xs">
+                  {product.rating}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Title */}
+          <Link to={`/product/${product.id}`}>
+            <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-snug line-clamp-2 min-h-[2.5rem]">
+              {product.name}
+            </h3>
+          </Link>
+
+          {/* Description */}
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3 sm:mb-4 line-clamp-2 min-h-[2rem]">
+            {product.description}
+          </p>
 
         <div className="mt-auto pt-3 sm:pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-3 sm:gap-4">
           <div>
