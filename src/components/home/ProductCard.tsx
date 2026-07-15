@@ -114,24 +114,25 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             {product.description}
           </p>
 
-        <div className="mt-auto pt-3 sm:pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-3 sm:gap-4">
-          <div>
-            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">{t('productCard.price', language)}</p>
-            <p className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
-              {formatPrice(product.priceRWF)} <span className="text-[9px] sm:text-xs font-bold opacity-60">RWF</span>
-            </p>
-          </div>
+          <div className="mt-auto pt-3 sm:pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-3 sm:gap-4">
+            <div>
+              <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">{t('productCard.price', language)}</p>
+              <p className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+                {formatPrice(product.priceRWF)} <span className="text-[9px] sm:text-xs font-bold opacity-60">RWF</span>
+              </p>
+            </div>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-[#0cf862] hover:bg-[#07c24c] text-white rounded-2xl shadow-lg shadow-emerald-500/20 transition-all hover:scale-125 active:scale-90 will-change-transform"
-            aria-label="Buy on WhatsApp"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <MessageCircle size={20} className="sm:w-6 sm:h-6" />
-          </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-[#0cf862] hover:bg-[#07c24c] text-white rounded-2xl shadow-lg shadow-emerald-500/20 transition-all hover:scale-125 active:scale-90 will-change-transform"
+              aria-label="Buy on WhatsApp"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <MessageCircle size={20} className="sm:w-6 sm:h-6" />
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>
