@@ -200,7 +200,7 @@
   }
   
   .card-premium {
-    @apply bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-red-500/40 dark:hover:border-red-500/40 hover:shadow-red-glow-lg transition-all duration-500;
+    @apply bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-red-500/40 dark:hover:border-red-500/40 hover:shadow-2xl hover:shadow-red-500/50 transition-all duration-500;
   }
   
   .card-hover-lift {
@@ -211,7 +211,7 @@
 /* Button Utilities */
 @layer utilities {
   .btn-primary {
-    @apply bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-red-600/25 hover:shadow-red-glow-lg;
+    @apply bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-red-600/25 hover:shadow-2xl hover:shadow-red-500/50;
   }
   
   .btn-secondary {

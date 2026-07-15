@@ -24,7 +24,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="group relative h-full overflow-hidden"
     >
-      <div className="card-premium relative flex flex-col h-full overflow-hidden shadow-soft-lg hover:shadow-red-glow-lg card-hover-lift">
+      <div className="card-premium relative flex flex-col h-full overflow-hidden shadow-soft-lg hover:shadow-2xl hover:shadow-red-500/50 card-hover-lift">
         {/* Gradient Accent Top */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-2xl pointer-events-none" />
         

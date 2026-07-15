@@ -54,7 +54,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2 group z-10">
           <motion.div 
             whileHover={{ rotate: 12 }}
-            className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-red-glow"
+            className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-xl shadow-red-500/20"
           >
             <ShoppingBag className="text-white w-6 h-6" />
           </motion.div>
