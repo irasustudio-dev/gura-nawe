@@ -7,23 +7,24 @@ import ProductCard from '../components/home/ProductCard';
 import ServiceCard from '../components/home/ServiceCard';
 import Testimonials from '../components/home/Testimonials';
 import SectionHeader from '../components/shared/SectionHeader';
-import marketplaceData from '../data/marketplace.json';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, ShieldCheck, Zap, Upload } from 'lucide-react';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function Home() {
   const { language } = useLanguage();
+  const { store, products, services } = getMarketplaceData();
   useSEO({
     title: 'GURA NAWE - Buy & Sell Digital Assets Safely | Digital Marketplace Rwanda',
     description: 'Buy and sell social media accounts, YouTube channels, TikTok accounts, Instagram, and digital services. Trusted by 1200+ users in Rwanda. 24/7 WhatsApp support.',
   });
 
-  const featuredProducts = marketplaceData.products.slice(0, 4);
-  const featuredServices = marketplaceData.services.slice(0, 3);
+  const featuredProducts = products.slice(0, 4);
+  const featuredServices = services.slice(0, 3);
 
   const whatsappMessage = encodeURIComponent("Hello GURA NAWE, I want to sell my digital asset. Here are the details...");
-  const sellLink = `https://wa.me/${marketplaceData.store.whatsapp}?text=${whatsappMessage}`;
+  const sellLink = `https://wa.me/${store.whatsapp}?text=${whatsappMessage}`;
 
   return (
     <div className="pt-10">
@@ -162,7 +163,7 @@ export default function Home() {
                 <Link to="/marketplace" className="w-full sm:w-auto bg-white text-red-600 px-10 py-5 rounded-[24px] font-bold text-lg shadow-2xl transition-all hover:scale-105 active:scale-95">
                   Browse Store
                 </Link>
-                <a href={`https://wa.me/${marketplaceData.store.whatsapp}`} target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-slate-900/40 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-[24px] font-bold text-lg shadow-xl transition-all hover:bg-slate-900/60 active:scale-95">
+                <a href={`https://wa.me/${store.whatsapp}`} target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-slate-900/40 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-[24px] font-bold text-lg shadow-xl transition-all hover:bg-slate-900/60 active:scale-95">
                   Chat With Us
                 </a>
               </div>

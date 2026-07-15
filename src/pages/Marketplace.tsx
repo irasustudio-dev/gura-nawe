@@ -1,23 +1,24 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, LayoutGrid, List, X } from 'lucide-react';
-import marketplaceData from '../data/marketplace.json';
 import ProductCard from '../components/home/ProductCard';
 import SectionHeader from '../components/shared/SectionHeader';
 import { cn } from '../utils/utils';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function Marketplace() {
   const [searchParams, setSearchParams] = useSearchParams();
   const catParam = searchParams.get('cat') || 'all';
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState(catParam);
+  const { categories, products } = getMarketplaceData();
 
   useEffect(() => {
     setActiveCategory(catParam);
   }, [catParam]);
 
   const filteredProducts = useMemo(() => {
-    return marketplaceData.products.filter(p => {
+    return products.filter(p => {
       const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
       const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                            p.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -74,7 +75,7 @@ export default function Marketplace() {
             >
               All Assets
             </button>
-            {marketplaceData.categories.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => handleCategoryChange(cat.id)}

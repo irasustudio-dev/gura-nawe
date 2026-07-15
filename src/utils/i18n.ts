@@ -1,37 +1,53 @@
-import translations from '../data/translations.json';
+type Language = 'eng';
 
-type Language = 'kin' | 'eng';
-
-interface Translation {
-  [key: string]: string | Translation;
-}
-
-const translationData: { [key in Language]: Translation } = {
-  kin: translations.kin,
-  eng: translations.eng,
+const englishTranslations: Record<string, string> = {
+  'hero.badge': 'Verified Premium Marketplace',
+  'hero.title': 'Premium digital assets for ambitious brands',
+  'hero.subtitle': 'Discover curated creator assets, secure listings, and fast WhatsApp delivery.',
+  'hero.browseMarketplace': 'Browse Marketplace',
+  'hero.whatsappUs': 'Chat on WhatsApp',
+  'hero.secureDeal': 'Secure Deals',
+  'hero.sellers': 'Verified Sellers',
+  'hero.rating': 'Client Rating',
+  'hero.instantConnect': 'Instant Connect',
+  'hero.newSale': 'New Premium Listing',
+  'hero.watchHours': 'Trusted Volume',
+  'marketplace.title': 'Premium Marketplace',
+  'marketplace.subtitle': 'Curated digital assets, creator accounts, and growth services for ambitious brands.',
+  'marketplace.viewAll': 'Browse All',
+  'sell.title': 'Sell your digital asset',
+  'sell.subtitle': 'List your account or channel securely and connect with serious buyers in minutes.',
+  'sell.button': 'Start Selling',
+  'categories.youtube': 'YouTube',
+  'categories.tiktok': 'TikTok',
+  'categories.instagram': 'Instagram',
+  'categories.facebook': 'Facebook',
+  'categories.ebooks': 'eBooks',
+  'categories.services': 'Services',
+  'productCard.featured': 'Featured',
+  'productCard.new': 'New',
+  'productCard.price': 'Price',
+  'footer.tagline': 'Premium digital commerce made private, polished, and efficient.',
+  'footer.instagram': 'Instagram',
+  'footer.facebook': 'Facebook',
+  'footer.marketplace': 'Marketplace',
+  'footer.youtubeChannels': 'YouTube Channels',
+  'footer.tiktokAccounts': 'TikTok Accounts',
+  'footer.instagramAccounts': 'Instagram Accounts',
+  'footer.promotionServices': 'Growth Services',
+  'footer.company': 'Company',
+  'footer.aboutUs': 'About Us',
+  'footer.contactSupport': 'Contact Support',
+  'footer.privacy': 'Privacy',
+  'footer.terms': 'Terms',
+  'footer.contactUs': 'Contact Us',
+  'footer.phone': 'Phone',
+  'footer.email': 'Email',
+  'footer.location': 'Location',
+  'footer.copyright': '© 2026 GURA NAWE. All rights reserved.',
+  'testimonials.title': 'Trusted by premium creators',
 };
 
-export function t(key: string, language: Language = 'kin'): string {
-  const keys = key.split('.');
-  let current: any = translationData[language];
-
-  for (const k of keys) {
-    if (current && typeof current === 'object' && k in current) {
-      current = current[k];
-    } else {
-      // Fallback to English if translation key not found
-      current = translationData.eng;
-      for (const fallbackKey of keys) {
-        if (current && typeof current === 'object' && fallbackKey in current) {
-          current = current[fallbackKey];
-        } else {
-          // Return the key itself if not found
-          return key;
-        }
-      }
-      return current;
-    }
-  }
-
-  return typeof current === 'string' ? current : key;
+export function t(key: string, _language: Language = 'eng'): string {
+  return englishTranslations[key] ?? key.replace(/\./g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }

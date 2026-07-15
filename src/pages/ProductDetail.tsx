@@ -3,15 +3,16 @@ import {
   Star, ShieldCheck, MessageCircle, ArrowLeft, 
   CheckCircle2, Share2, Info, ChevronRight, PlayCircle
 } from 'lucide-react';
-import marketplaceData from '../data/marketplace.json';
 import { generateWhatsAppLink } from '../utils/whatsapp';
 import { formatPrice, cn } from '../utils/utils';
 import { motion } from 'motion/react';
 import ProductCard from '../components/home/ProductCard';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const product = marketplaceData.products.find(p => p.id === id);
+  const { products } = getMarketplaceData();
+  const product = products.find((p) => p.id === id);
 
   if (!product) {
     return (
@@ -23,7 +24,7 @@ export default function ProductDetail() {
   }
 
   const whatsappUrl = generateWhatsAppLink(product.name, product.priceRWF);
-  const relatedProducts = marketplaceData.products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
+  const relatedProducts = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
 
   return (
     <div className="pt-32 pb-24">

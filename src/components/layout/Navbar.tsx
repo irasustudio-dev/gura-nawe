@@ -1,29 +1,36 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  Menu, X, Sun, Moon, ShoppingBag, 
-  MessageCircle, Phone, Info, Home as HomeIcon, Zap
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  ShoppingBag,
+  MessageCircle,
+  Phone,
+  Info,
+  Home as HomeIcon,
+  Zap,
+  ShieldCheck,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
-import { useLanguage } from '../../context/LanguageContext';
-import { t } from '../../utils/i18n';
 import { cn } from '../../utils/utils';
 import marketplaceData from '../../data/marketplace.json';
 
 const navLinks = [
-  { name: 'Home', translationKey: 'navigation.home', path: '/', icon: HomeIcon },
-  { name: 'Marketplace', translationKey: 'navigation.marketplace', path: '/marketplace', icon: ShoppingBag },
-  { name: 'Services', translationKey: 'navigation.services', path: '/services', icon: Zap },
-  { name: 'About', translationKey: 'navigation.about', path: '/about', icon: Info },
-  { name: 'Contact', translationKey: 'navigation.contact', path: '/contact', icon: Phone },
+  { name: 'Home', path: '/', icon: HomeIcon },
+  { name: 'Marketplace', path: '/marketplace', icon: ShoppingBag },
+  { name: 'Services', path: '/services', icon: Zap },
+  { name: 'Admin', path: '/admin', icon: ShieldCheck },
+  { name: 'About', path: '/about', icon: Info },
+  { name: 'Contact', path: '/contact', icon: Phone },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
   const location = useLocation();
 
   useEffect(() => {
@@ -74,29 +81,12 @@ export default function Navbar() {
                   : "text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400"
               )}
             >
-              {t(link.translationKey, language)}
+              {link.name}
             </Link>
           ))}
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Language Switcher */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={toggleLanguage}
-            className={cn(
-              "px-3 py-2 rounded-xl font-semibold text-xs sm:text-sm transition-all border",
-              language === 'kin'
-                ? "bg-red-600 text-white hover:bg-red-700 border-red-700"
-                : "bg-white/60 dark:bg-slate-800/60 text-red-600 dark:text-red-400 border-slate-200 dark:border-slate-700 hover:bg-white/80 dark:hover:bg-slate-700/80"
-            )}
-            aria-label="Toggle language"
-            title={language === 'kin' ? 'Switch to English' : 'Guhindura kuri Kinyarwanda'}
-          >
-            {language === 'kin' ? 'RW' : 'EN'}
-          </motion.button>
-
           <motion.button
             whileHover={{ rotate: 20 }}
             whileTap={{ scale: 0.95 }}
@@ -156,25 +146,11 @@ export default function Navbar() {
                     )}
                   >
                     <link.icon size={18} />
-                    <span className="font-medium text-sm">{t(link.translationKey, language)}</span>
+                    <span className="font-medium text-sm">{link.name}</span>
                   </Link>
                 </motion.div>
               ))}
               <hr className="my-2 border-slate-100 dark:border-slate-800" />
-              <div className="flex gap-2 mb-3">
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  onClick={toggleLanguage}
-                  className={cn(
-                    "flex-1 p-3 rounded-lg font-semibold transition-all",
-                    language === 'kin'
-                      ? "bg-red-600 text-white hover:bg-red-700"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-                  )}
-                >
-                  {language === 'kin' ? 'RW' : 'EN'}
-                </motion.button>
-              </div>
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}

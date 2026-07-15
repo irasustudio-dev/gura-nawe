@@ -14,12 +14,12 @@ import {
 import SectionHeader from '../components/shared/SectionHeader';
 import SolutionCard from '../components/home/SolutionCard';
 import ServiceCard from '../components/home/ServiceCard';
-import marketplaceData from '../data/marketplace.json';
 import { useSEO } from '../utils/seo';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function Services() {
   const { language } = useLanguage();
-  const { services } = marketplaceData;
+  const { services, store } = getMarketplaceData();
 
   useSEO({
     title: 'Social Media Solutions - GURA NAWE',
@@ -201,7 +201,7 @@ export default function Services() {
                   : 'Need a custom campaign? Send us the brief and we will build a growth package for your brand.'}
               </p>
               <a
-                href={`https://wa.me/${marketplaceData.store.whatsapp}`}
+                href={`https://wa.me/${store.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-red-600 px-8 py-4 rounded-3xl font-bold shadow-xl shadow-white/20 transition-all hover:scale-105"

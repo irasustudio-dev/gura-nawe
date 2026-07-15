@@ -1,22 +1,35 @@
 import { Link } from 'react-router-dom';
-import { 
-  Youtube, Music2, Instagram, Facebook, Book, Zap, ArrowRight 
+import {
+  ArrowRight,
+  Book,
+  Facebook,
+  Instagram,
+  Music2,
+  type LucideIcon,
+  Youtube,
+  Zap,
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import marketplaceData from '../../data/marketplace.json';
 import { cn } from '../../utils/utils';
 import { useLanguage } from '../../context/LanguageContext';
 import { t } from '../../utils/i18n';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 
-const iconMap: Record<string, any> = {
-  Youtube, Music2, Instagram, Facebook, Book, Zap
+const iconMap: Record<string, LucideIcon> = {
+  youtube: Youtube,
+  tiktok: Music2,
+  instagram: Instagram,
+  facebook: Facebook,
+  ebooks: Book,
+  default: Zap,
 };
 
 export default function CategoryMenu() {
   const { language } = useLanguage();
+  const { categories } = getMarketplaceData();
 
   return (
-    <section className="py-16 sm:py-20 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
           <div>
@@ -36,8 +49,8 @@ export default function CategoryMenu() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 lg:gap-8">
-          {marketplaceData.categories.map((cat, i) => {
-            const Icon = iconMap[cat.icon] || Zap;
+          {categories.map((cat, i) => {
+            const Icon = iconMap[cat.icon] || iconMap.default;
             return (
               <motion.div
                 key={cat.id}
@@ -48,7 +61,7 @@ export default function CategoryMenu() {
               >
                 <Link
                   to={`/marketplace?cat=${cat.id}`}
-                  className="group flex flex-col items-center p-8 rounded-[32px] bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all text-center"
+                  className="group flex flex-col items-center p-8 rounded-[32px] bg-white/80 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/80 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-50/80 dark:hover:bg-red-900/10 transition-all text-center shadow-sm hover:shadow-xl"
                 >
                   <div className={cn(
                     "w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all scale-100 group-hover:scale-110 group-hover:rotate-6",
