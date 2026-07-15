@@ -1,5 +1,6 @@
 import { 
-  Users, Eye, Clock, MessageCircle, CheckCircle2, Zap 
+  Users, Eye, Clock, MessageCircle, CheckCircle2, Zap,
+  type LucideIcon,
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Service } from '../../types';
@@ -11,8 +12,11 @@ interface ServiceCardProps {
   service: Service;
 }
 
-const iconMap: Record<string, any> = {
-  Users, Eye, Clock, Zap
+const iconMap: Record<string, LucideIcon> = {
+  Users,
+  Eye,
+  Clock,
+  Zap,
 };
 
 const ServiceCard: FC<ServiceCardProps> = ({ service }) => {

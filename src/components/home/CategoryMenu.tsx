@@ -11,8 +11,6 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { cn } from '../../utils/utils';
-import { useLanguage } from '../../context/LanguageContext';
-import { t } from '../../utils/i18n';
 import { getMarketplaceData } from '../../utils/marketplaceStore';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -24,8 +22,16 @@ const iconMap: Record<string, LucideIcon> = {
   default: Zap,
 };
 
+const categoryLabelMap: Record<string, string> = {
+  youtube: 'YouTube',
+  tiktok: 'TikTok',
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  ebooks: 'eBooks',
+  services: 'Services',
+};
+
 export default function CategoryMenu() {
-  const { language } = useLanguage();
   const { categories } = getMarketplaceData();
 
   return (
@@ -34,17 +40,17 @@ export default function CategoryMenu() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white mb-2">
-              {t('marketplace.title', language)}
+              Premium Marketplace
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl">
-              {t('marketplace.subtitle', language)}
+              Curated digital assets, creator accounts, and growth services for ambitious brands.
             </p>
           </div>
           <Link 
             to="/marketplace" 
             className="group inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
           >
-            {t('marketplace.viewAll', language)} <ArrowRight size={18} />
+            Browse All <ArrowRight size={18} />
           </Link>
         </div>
 
@@ -75,7 +81,7 @@ export default function CategoryMenu() {
                     <Icon size={32} strokeWidth={1.5} />
                   </div>
                   <h3 className="font-bold text-slate-900 dark:text-white text-sm group-hover:text-red-600 transition-colors">
-                    {t(`categories.${cat.id}`, language)}
+                    {categoryLabelMap[cat.id] ?? cat.name}
                   </h3>
                 </Link>
               </motion.div>

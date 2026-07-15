@@ -4,8 +4,6 @@ import { motion } from 'motion/react';
 import { Product } from '../../types';
 import { generateWhatsAppLink } from '../../utils/whatsapp';
 import { formatPrice } from '../../utils/utils';
-import { useLanguage } from '../../context/LanguageContext';
-import { t } from '../../utils/i18n';
 import type { FC } from 'react';
 
 interface ProductCardProps {
@@ -13,7 +11,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { language } = useLanguage();
   const whatsappUrl = generateWhatsAppLink(product.name, product.priceRWF);
 
   return (
@@ -37,12 +34,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
               className="px-2.5 sm:px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-amber-500/30 inline-flex items-center gap-1"
             >
               <Zap size={10} className="hidden sm:block" />
-              {t('productCard.featured', language)}
+              Featured
             </motion.span>
           )}
           {product.isNew && (
             <span className="px-2.5 sm:px-3 py-1.5 rounded-full bg-gradient-to-r from-red-600 to-red-700 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest shadow-lg shadow-red-600/30">
-              {t('productCard.new', language)}
+              New
             </span>
           )}
           {product.stats && (
@@ -116,7 +113,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
           <div className="mt-auto pt-3 sm:pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-3 sm:gap-4">
             <div>
-              <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">{t('productCard.price', language)}</p>
+              <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-none mb-1">Price</p>
               <p className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
                 {formatPrice(product.priceRWF)} <span className="text-[9px] sm:text-xs font-bold opacity-60">RWF</span>
               </p>

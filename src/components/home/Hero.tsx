@@ -6,39 +6,6 @@ import {
 import { Link } from 'react-router-dom';
 import marketplaceData from '../../data/marketplace.json';
 import { cn } from '../../utils/utils';
-import { useLanguage } from '../../context/LanguageContext';
-import { t } from '../../utils/i18n';
-
-const statMetrics = [
-  { 
-    icon: ShieldCheck, 
-    label: 'hero.secureDeal', 
-    value: '100%',
-    color: 'from-red-500 to-red-600',
-    textColor: 'text-red-600'
-  },
-  { 
-    icon: TrendingUp, 
-    label: 'hero.sellers', 
-    value: '1.2K+',
-    color: 'from-blue-500 to-blue-600',
-    textColor: 'text-blue-600'
-  },
-  { 
-    icon: Star, 
-    label: 'hero.rating', 
-    value: '4.9/5',
-    color: 'from-yellow-500 to-yellow-600',
-    textColor: 'text-yellow-600'
-  },
-  { 
-    icon: Headphones, 
-    label: 'hero.instantConnect', 
-    value: '24/7',
-    color: 'from-green-500 to-green-600',
-    textColor: 'text-green-600'
-  },
-];
 
 // Animation variants
 const containerVariants = {
@@ -61,8 +28,15 @@ const itemVariants = {
   },
 };
 
+const heroTitle = 'Premium digital assets for ambitious brands';
+const heroSubtitle = 'Discover curated creator assets, secure listings, and fast WhatsApp delivery.';
+const statMetrics = [
+  { icon: ShieldCheck, label: 'Secure Deals', value: '1,200+', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+  { icon: Star, label: 'Verified Sellers', value: '4.9/5', color: 'from-yellow-500 to-yellow-600', textColor: 'text-yellow-600' },
+  { icon: Zap, label: 'Fast Support', value: '24/7', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+];
+
 export default function Hero() {
-  const { language } = useLanguage();
   return (
     <section className="relative min-h-screen pt-20 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
       {/* Animated Background Gradients */}
@@ -130,17 +104,17 @@ export default function Hero() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                {t('hero.badge', language)}
+                Verified Premium Marketplace
               </div>
             </motion.div>
 
             {/* Main Title */}
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mt-6 mb-6">
-                {t('hero.title', language).split(' ').slice(0, 2).join(' ')} <br />
+                {heroTitle.split(' ').slice(0, 2).join(' ')} <br />
                 <span className="relative inline-block mt-2">
                   <span className="bg-gradient-to-r from-red-600 via-red-500 to-orange-600 text-transparent bg-clip-text">
-                    {t('hero.title', language).split(' ').slice(2).join(' ')}
+                    {heroTitle.split(' ').slice(2).join(' ')}
                   </span>
                   
                   {/* Animated underline */}
@@ -166,7 +140,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <motion.p variants={itemVariants} className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mb-10 leading-relaxed">
-              {t('hero.subtitle', language)}
+              {heroSubtitle}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -178,7 +152,7 @@ export default function Hero() {
                   className="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 via-red-500 to-orange-600 hover:shadow-xl hover:shadow-red-600/40 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-lg shadow-lg shadow-red-600/30 transition-all duration-300 border border-red-400/20"
                 >
                   <ShoppingBag size={24} />
-                  {t('hero.browseMarketplace', language)}
+                  Browse Marketplace
                   <ArrowRight size={20} className="ml-1" />
                 </motion.button>
               </Link>
@@ -192,7 +166,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white/10 dark:bg-slate-800/50 backdrop-blur-md text-slate-900 dark:text-white hover:bg-white/20 dark:hover:bg-slate-800/70 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-lg shadow-lg border border-slate-200/30 dark:border-slate-600/30 transition-all duration-300"
               >
                 <MessageCircle size={24} className="text-[#0cf862]" />
-                {t('hero.whatsappUs', language)}
+                Chat on WhatsApp
               </motion.a>
             </motion.div>
 
@@ -233,7 +207,7 @@ export default function Hero() {
                       {stat.value}
                     </p>
                     <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 line-clamp-2">
-                      {t(stat.label, language)}
+                      {stat.label}
                     </p>
                   </div>
                 </motion.div>
@@ -276,9 +250,9 @@ export default function Hero() {
                     >
                       ✓
                     </motion.div>
-                    <span className="font-bold text-lg">{t('hero.newSale', language)}</span>
+                    <span className="font-bold text-lg">New Premium Listing</span>
                   </motion.div>
-                <p className="text-sm text-white/80">{language === 'kin' ? 'Imishinga ikomeye y’ikoranabuhanga ku isoko rya Gura Nawe' : 'Premium digital growth assets for modern creators.'}</p>
+                <p className="text-sm text-white/80">Premium digital growth assets for modern creators.</p>
               </div>
             </motion.div>
 
@@ -316,7 +290,7 @@ export default function Hero() {
               <div className="bg-gradient-to-br from-red-600 to-orange-600 p-6 rounded-2xl shadow-2xl shadow-red-600/40 border border-red-400/30 text-white flex items-center gap-4">
                 <div className="text-right flex-1">
                   <p className="text-2xl font-black">4K+</p>
-                  <p className="text-xs font-bold uppercase tracking-widest opacity-90">{t('hero.watchHours', language)}</p>
+                  <p className="text-xs font-bold uppercase tracking-widest opacity-90">Trusted Volume</p>
                 </div>
                 <div className="w-px h-12 bg-white/20" />
                 <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center font-black text-sm backdrop-blur">

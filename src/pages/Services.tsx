@@ -1,5 +1,3 @@
-import { useLanguage } from '../context/LanguageContext';
-import { t } from '../utils/i18n';
 import { motion } from 'motion/react';
 import {
   Radio,
@@ -10,6 +8,7 @@ import {
   ShieldCheck,
   BarChart3,
   Rocket,
+  MessageCircle,
 } from 'lucide-react';
 import SectionHeader from '../components/shared/SectionHeader';
 import SolutionCard from '../components/home/SolutionCard';
@@ -18,7 +17,6 @@ import { useSEO } from '../utils/seo';
 import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function Services() {
-  const { language } = useLanguage();
   const { services, store } = getMarketplaceData();
 
   useSEO({
@@ -29,60 +27,46 @@ export default function Services() {
   const solutionServices = [
     {
       icon: Radio,
-      title: t('services.youtube_monetization.title', language),
-      description: language === 'kin'
-        ? 'Tubakuza channel yawe kugera ku 4000 amasaha no 1000 subscribers kugira ngo wikoze amafaranga'
-        : 'Grow your YouTube channel to 4000 watch hours and 1000 subscribers for monetization',
-      whatsappMessage: t('services.youtube_monetization.whatsapp', language),
+      title: 'YouTube Monetization',
+      description: 'Grow your YouTube channel to 4000 watch hours and 1000 subscribers for monetization.',
+      whatsappMessage: 'Hello GURA NAWE, I need help monetizing my YouTube channel.',
     },
     {
       icon: RotateCcw,
-      title: t('services.account_recovery.title', language),
-      description: language === 'kin'
-        ? 'Twakugabanya inzira zo guhindura kugira ngo wica konti yawe yibwe cyangwa yabuze'
-        : 'We help you regain access to your hacked or lost social media accounts',
-      whatsappMessage: t('services.account_recovery.whatsapp', language),
+      title: 'Account Recovery',
+      description: 'We help you regain access to your hacked or lost social media accounts.',
+      whatsappMessage: 'Hello GURA NAWE, I need help recovering my social media account.',
     },
     {
       icon: TrendingUp,
-      title: t('services.growth_fixes.title', language),
-      description: language === 'kin'
-        ? 'Tubakuza audience yawe kandi tukosora ibibazo bya compliance no budget issues'
-        : 'Grow your social media presence and fix account issues across all platforms',
-      whatsappMessage: t('services.growth_fixes.whatsapp', language),
+      title: 'Growth & Compliance',
+      description: 'Grow your social media presence and fix account issues across all platforms.',
+      whatsappMessage: 'Hello GURA NAWE, I need support with social media growth and compliance.',
     },
     {
       icon: AlertTriangle,
-      title: t('services.copyright_issues.title', language),
-      description: language === 'kin'
-        ? 'Tubakusangira mu matembezi yo gutondekeza copyright strikes no community strikes'
-        : 'We guide you through copyright strike appeals and community strike resolutions',
-      whatsappMessage: t('services.copyright_issues.whatsapp', language),
+      title: 'Copyright Resolution',
+      description: 'We guide you through copyright strike appeals and community strike resolutions.',
+      whatsappMessage: 'Hello GURA NAWE, I need help resolving a copyright issue.',
     },
   ];
 
   const features = [
     { 
-      title: language === 'kin' ? 'Ubwenge Bunini & Imishinga' : 'Real & Active Growth', 
-      desc: language === 'kin'
-        ? 'Tukundanya ubwenge. Ibitekezo byose bikoreshwa neza kandi neza.'
-        : 'We prioritize quality over quantity. All services use legal and organic methods.',
+      title: 'Real & Active Growth', 
+      desc: 'We prioritize quality over quantity. All services use legal and organic methods.',
       icon: BarChart3,
       color: 'text-blue-500'
     },
     { 
-      title: language === 'kin' ? 'Vuba kugera' : 'Fast Delivery', 
-      desc: language === 'kin'
-        ? 'Serivisi nyinshi zitangira mu masaha 24. Nubwo igihe kigira agaciro.'
-        : 'Most services start within 24 hours. We understand that time is money.',
+      title: 'Fast Delivery', 
+      desc: 'Most services start within 24 hours. We understand that time is money.',
       icon: Zap,
       color: 'text-amber-500'
     },
     { 
-      title: language === 'kin' ? 'Ibabara Neza' : 'Secure Payments', 
-      desc: language === 'kin'
-        ? 'Titangira ku WhatsApp kandi makura amafaranga kubyifatiwe neza.'
-        : 'Order via WhatsApp and pay using trusted local payment methods.',
+      title: 'Secure Payments', 
+      desc: 'Order via WhatsApp and pay using trusted local payment methods.',
       icon: ShieldCheck,
       color: 'text-emerald-500'
     }
@@ -99,14 +83,10 @@ export default function Services() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-              {language === 'kin'
-                ? 'Ukeneye Ubufasha Kuri Social Media Yawe?'
-                : 'Need Help with Your Social Media?'}
+              Need Help with Your Social Media?
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              {language === 'kin'
-                ? 'Tubagira inzira zo gukemura ibibazo bya social media accounts. Mu minsi yose, 24/7 WhatsApp support.'
-                : 'We provide professional solutions for all your social media challenges. Available 24/7 on WhatsApp.'}
+              We provide professional solutions for all your social media challenges. Available 24/7 on WhatsApp.
             </p>
           </motion.div>
         </div>
@@ -117,7 +97,7 @@ export default function Services() {
         <section className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              {language === 'kin' ? 'Ibibazo Byinshi Tubikora' : 'Problems We Solve'}
+              Problems We Solve
             </h2>
           </div>
           
@@ -138,12 +118,10 @@ export default function Services() {
         <section className="mb-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              {language === 'kin' ? 'Impamvu udusabe' : 'Why Choose Us'}
+              Why Choose Us
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-              {language === 'kin'
-                ? 'Serivisi zacu zigizwe n’umutekano, ubuziranenge, n’umuvuduko mu gusubiza.'
-                : 'Secure, reliable, and fast social media services built for creators.'}
+              Secure, reliable, and fast social media services built for creators.
             </p>
           </div>
 
@@ -173,8 +151,8 @@ export default function Services() {
 
         <section className="mb-24">
           <SectionHeader
-            title={language === 'kin' ? 'Serivisi zacu z\'ihariye' : 'Our Premium Packages'}
-            subtitle={language === 'kin' ? 'Intego ni ugutanga ibisubizo byizewe kandi vuba.' : 'Choose from premium packages built for fast, secure growth.'}
+            title="Our Premium Packages"
+            subtitle="Choose from premium packages built for fast, secure growth."
             centered
           />
 
@@ -190,15 +168,13 @@ export default function Services() {
           <div className="relative z-10 grid gap-10 lg:grid-cols-[1.6fr_1fr] items-center">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm uppercase tracking-[0.25em] font-bold text-white/90 mb-4">
-                <Rocket size={18} /> {language === 'kin' ? 'Custom Order' : 'Custom Order'}
+                <Rocket size={18} /> Custom Order
               </span>
               <h2 className="text-4xl font-black mb-4 leading-tight">
-                {language === 'kin' ? 'Serivisi yihariye kuri buri mukiriya' : 'Custom packages built for your goals'}
+                Custom packages built for your goals
               </h2>
               <p className="text-red-100 max-w-2xl leading-relaxed mb-8">
-                {language === 'kin'
-                  ? 'Niba ukeneye followers, views, cyangwa campaign yihariye, tanga ibisabwa hanyuma tugufashe kugera ku ntego zawe.'
-                  : 'Need a custom campaign? Send us the brief and we will build a growth package for your brand.'}
+                Need a custom campaign? Send us the brief and we will build a growth package for your brand.
               </p>
               <a
                 href={`https://wa.me/${store.whatsapp}`}
@@ -206,18 +182,16 @@ export default function Services() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-red-600 px-8 py-4 rounded-3xl font-bold shadow-xl shadow-white/20 transition-all hover:scale-105"
               >
-                <MessageCircle size={22} /> {language === 'kin' ? 'Twandikire kuri WhatsApp' : 'Talk to our Sales Team'}
+                <MessageCircle size={22} /> Talk to our Sales Team
               </a>
             </div>
 
             <div className="relative">
               <div className="absolute -right-10 top-1/2 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
               <div className="relative rounded-[40px] bg-white/10 p-8 text-slate-100 border border-white/20">
-                <p className="text-lg font-semibold">{language === 'kin' ? '24/7 Ubufasha' : '24/7 Support'}</p>
+                <p className="text-lg font-semibold">24/7 Support</p>
                 <p className="mt-4 text-red-100 text-sm leading-relaxed">
-                  {language === 'kin'
-                    ? 'Turakorana n’umutekano wose kandi dutanga ibisubizo mu buryo bwihuse.'
-                    : 'We provide secure, fast responses with priority support.'}
+                  We provide secure, fast responses with priority support.
                 </p>
               </div>
             </div>

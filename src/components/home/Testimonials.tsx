@@ -1,11 +1,8 @@
 import { motion } from 'motion/react';
 import { Star, ShieldCheck } from 'lucide-react';
 import testimonialsData from '../../data/testimonials.json';
-import { useLanguage } from '../../context/LanguageContext';
-import { t } from '../../utils/i18n';
 
 export default function Testimonials() {
-  const { language } = useLanguage();
 
   const testimonialsList = testimonialsData.testimonials;
   // Duplicate for seamless infinite scroll
@@ -16,12 +13,10 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 mb-12">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">
-            {t('testimonials.title', language)}
+            Trusted by premium creators
           </h2>
           <p className="text-slate-600 dark:text-slate-300 text-lg max-w-2xl mx-auto">
-            {language === 'kin'
-              ? 'Abakiriya bateguye bazirikana ubunyamwuga bwacu. Chat kuri WhatsApp igihe cyose.'
-              : 'Trusted by creators across Rwanda for secure digital trading.'}
+            Trusted by creators across Rwanda for secure digital trading.
           </p>
         </div>
       </div>
@@ -45,7 +40,7 @@ export default function Testimonials() {
                   {/* Rating */}
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span className="inline-flex items-center gap-2 rounded-full bg-red-600/10 text-red-700 px-3 py-1 text-xs font-bold uppercase tracking-[0.25em] shadow-sm">
-                      <ShieldCheck size={14} /> {language === 'kin' ? 'Verified' : 'Verified'}
+                      <ShieldCheck size={14} /> Verified
                     </span>
                     <div className="flex gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -60,7 +55,7 @@ export default function Testimonials() {
 
                   {/* Quote */}
                   <p className="text-slate-700 dark:text-slate-300 italic mb-6 text-lg leading-relaxed font-medium">
-                    "{language === 'kin' ? testimonial.quoteKin : testimonial.quoteEng}"
+                    "{testimonial.quoteEng}"
                   </p>
 
                   {/* Red accent bar */}
@@ -92,21 +87,15 @@ export default function Testimonials() {
       {/* CTA below testimonials */}
       <div className="mt-16 text-center">
         <p className="text-slate-600 dark:text-slate-300 mb-6">
-          {language === 'kin'
-            ? 'Witeguye gutangira urugendo rwawe rwa digital?'
-            : 'Ready to start your digital journey?'}
+          Ready to start your digital journey?
         </p>
         <a
-          href={`https://wa.me/250722248567?text=${encodeURIComponent(
-            language === 'kin'
-              ? 'Muraho Gura Nawe, nshaka kwiyunguruza imiceri yanjye ya digital.'
-              : 'Hello Gura Nawe, I want to explore your digital assets.'
-          )}`}
+          href={`https://wa.me/250722248567?text=${encodeURIComponent('Hello Gura Nawe, I want to explore your digital assets.')}`}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-red-600/40 transition-all hover:scale-105"
         >
-          {language === 'kin' ? 'Twandikire ku WhatsApp' : 'Chat on WhatsApp'}
+          Chat on WhatsApp
         </a>
       </div>
     </section>

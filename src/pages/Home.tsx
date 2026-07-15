@@ -1,6 +1,4 @@
-import { useSEO, generateStructuredData } from '../utils/seo';
-import { useLanguage } from '../context/LanguageContext';
-import { t } from '../utils/i18n';
+import { useSEO } from '../utils/seo';
 import Hero from '../components/home/Hero';
 import CategoryMenu from '../components/home/CategoryMenu';
 import ProductCard from '../components/home/ProductCard';
@@ -13,7 +11,6 @@ import { ArrowRight, Star, ShieldCheck, Zap, Upload } from 'lucide-react';
 import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function Home() {
-  const { language } = useLanguage();
   const { store, products, services } = getMarketplaceData();
   useSEO({
     title: 'GURA NAWE - Buy & Sell Digital Assets Safely',
@@ -35,8 +32,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('sell.title', language)}</h3>
-              <p className="text-slate-600 dark:text-slate-300">{t('sell.subtitle', language)}</p>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Sell your digital asset</h3>
+              <p className="text-slate-600 dark:text-slate-300">List your account or channel securely and connect with serious buyers in minutes.</p>
             </div>
             <a
               href={sellLink}
@@ -45,7 +42,7 @@ export default function Home() {
               className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg shadow-xl shadow-red-600/30 transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
             >
               <Upload size={22} />
-              {t('sell.button', language)}
+              Start Selling
             </a>
           </div>
         </div>
@@ -58,12 +55,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
             <SectionHeader 
-              title={t('marketplace.title', language)} 
-              subtitle={t('marketplace.subtitle', language)}
+              title="Premium Marketplace" 
+              subtitle="Curated digital assets, creator accounts, and growth services for ambitious brands."
               className="mb-0"
             />
             <Link to="/marketplace" className="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 font-bold flex items-center gap-2 text-red-600 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all shadow-sm">
-              {t('marketplace.viewAll', language)} <ArrowRight size={18} />
+              Browse All <ArrowRight size={18} />
             </Link>
           </div>
 
