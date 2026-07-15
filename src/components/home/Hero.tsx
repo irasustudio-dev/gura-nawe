@@ -5,8 +5,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getMarketplaceData } from '../../utils/marketplaceStore';
-import { cn } from '../../utils/utils';
-
+import { Testimonials } from '../components/home/Testimonials';
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
