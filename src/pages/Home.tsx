@@ -16,7 +16,8 @@ export default function Home() {
   const { language } = useLanguage();
   const { store, products, services } = getMarketplaceData();
   useSEO({
-    title: 'GURA NAWE - Buy & Sell Digital Assets Safely | Digital Marketplace Rwanda',
+    title: '
+    A',
     description: 'Buy and sell social media accounts, YouTube channels, TikTok accounts, Instagram, and digital services. Trusted by 1200+ users in Rwanda. 24/7 WhatsApp support.',
   });
 
