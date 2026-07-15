@@ -4,13 +4,13 @@ import {
   Facebook, Twitter, Send, Clock, ShieldCheck, AlertCircle 
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import marketplaceData from '../data/marketplace.json';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 import SectionHeader from '../components/shared/SectionHeader';
 import { contactFormSchema, validateForm } from '../utils/validation';
 import { notifySuccess, notifyError } from '../utils/notifications';
 
 export default function Contact() {
-  const { store } = marketplaceData;
+  const { store } = getMarketplaceData();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({

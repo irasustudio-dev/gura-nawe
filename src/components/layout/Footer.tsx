@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Instagram, Facebook, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react';
-import marketplaceData from '../../data/marketplace.json';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { store } = marketplaceData;
+  const { store } = getMarketplaceData();
 
   return (
     <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300">

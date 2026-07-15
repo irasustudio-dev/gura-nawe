@@ -1,5 +1,6 @@
 import { LucideIcon } from 'lucide-react';
 import { motion } from 'motion/react';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 
 interface SolutionCardProps {
   icon: LucideIcon;
@@ -14,12 +15,15 @@ export default function SolutionCard({
   title,
   description,
   whatsappMessage,
-  whatsappNumber = '250722248567',
+  whatsappNumber,
 }: SolutionCardProps) {
+  const { store } = getMarketplaceData();
+  const activeNumber = whatsappNumber ?? store.whatsapp;
+
   const handleWhatsApp = () => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      `https://wa.me/${activeNumber}?text=${encodedMessage}`,
       '_blank'
     );
   };

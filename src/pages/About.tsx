@@ -3,9 +3,10 @@ import {
   Users, Target, Award, Heart, MessageCircle, 
   MapPin, CheckCircle2, ShoppingBag, Zap, ShieldCheck
 } from 'lucide-react';
-import marketplaceData from '../data/marketplace.json';
+import { getMarketplaceData } from '../utils/marketplaceStore';
 
 export default function About() {
+  const { store } = getMarketplaceData();
   const stats = [
     { label: "Active Buyers", value: "2K+", icon: Users },
     { label: "Accounts Sold", value: "500+", icon: ShoppingBag },
@@ -119,7 +120,7 @@ export default function About() {
           </div>
           <div className="shrink-0 flex flex-col gap-4 w-full md:w-auto">
              <a 
-              href={`https://wa.me/${marketplaceData.store.whatsapp}`}
+              href={`https://wa.me/${store.whatsapp}`}
               target="_blank" 
               rel="noreferrer"
               className="px-10 py-5 rounded-[24px] bg-[#0cf862] text-white font-black text-xl flex items-center justify-center gap-3 shadow-2xl shadow-emerald-500/20"

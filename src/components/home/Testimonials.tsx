@@ -1,9 +1,10 @@
 import { motion } from 'motion/react';
 import { Star, ShieldCheck } from 'lucide-react';
 import testimonialsData from '../../data/testimonials.json';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 
 export default function Testimonials() {
-
+  const { store } = getMarketplaceData();
   const testimonialsList = testimonialsData.testimonials;
   // Duplicate for seamless infinite scroll
   const displayList = [...testimonialsList, ...testimonialsList];
@@ -90,7 +91,7 @@ export default function Testimonials() {
           Ready to start your digital journey?
         </p>
         <a
-          href={`https://wa.me/250722248567?text=${encodeURIComponent('Hello Gura Nawe, I want to explore your digital assets.')}`}
+          href={`https://wa.me/${store.whatsapp}?text=${encodeURIComponent('Hello Gura Nawe, I want to explore your digital assets.')}`}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-red-600/40 transition-all hover:scale-105"

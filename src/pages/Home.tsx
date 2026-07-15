@@ -13,8 +13,8 @@ import { getMarketplaceData } from '../utils/marketplaceStore';
 export default function Home() {
   const { store, products, services } = getMarketplaceData();
   useSEO({
-    title: 'GURA NAWE - Buy & Sell Digital Assets Safely',
-    description: 'Buy and sell social media accounts, YouTube channels, TikTok accounts, Instagram, and digital services. Trusted by 1200+ users in Rwanda. 24/7 WhatsApp support.',
+    title: 'GURA NAWE - Premium Digital Assets & Software Marketplace',
+    description: 'GURA NAWE is a premium digital assets and software marketplace for creator accounts, social media properties, and growth services with trusted WhatsApp support.',
   });
 
   const featuredProducts = products.slice(0, 4);

@@ -16,7 +16,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { useTheme } from '../../context/ThemeContext';
 import { cn } from '../../utils/utils';
-import marketplaceData from '../../data/marketplace.json';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 
 const navLinks = [
   { name: 'Home', path: '/', icon: HomeIcon },
@@ -32,6 +32,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const { store } = getMarketplaceData();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +61,7 @@ export default function Navbar() {
           </motion.div>
           <div>
             <span className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white block leading-none">
-              {marketplaceData.store.name}
+              {store.name}
             </span>
             <span className="text-[9px] sm:text-[10px] uppercase tracking-widest font-semibold text-red-600 dark:text-red-400">
               Digital Market
@@ -98,7 +99,7 @@ export default function Navbar() {
           </motion.button>
           
           <a
-            href={`https://wa.me/${marketplaceData.store.whatsapp}`}
+            href={`https://wa.me/${store.whatsapp}`}
             target="_blank"
             rel="noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 bg-[#0cf862] hover:bg-[#07c24c] text-white px-3 sm:px-4 py-2 rounded-xl font-semibold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
@@ -154,7 +155,7 @@ export default function Navbar() {
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                href={`https://wa.me/${marketplaceData.store.whatsapp}`}
+                href={`https://wa.me/${store.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center gap-2 bg-[#0cf862] hover:bg-[#07c24c] text-white p-3 rounded-lg font-bold shadow-lg shadow-emerald-500/20 transition-all text-sm"

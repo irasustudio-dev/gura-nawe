@@ -10,8 +10,8 @@ interface MetaConfig {
 }
 
 const defaultMeta: MetaConfig = {
-  title: 'GURA NAWE - High-End Digital Assets Marketplace',
-  description: 'GURA NAWE is a premium digital assets marketplace for creator accounts, social media assets, and growth services with secure WhatsApp-based support.',
+  title: 'GURA NAWE - Premium Digital Assets & Software Marketplace',
+  description: 'GURA NAWE is a premium digital assets and software marketplace for creators, brands, and digital entrepreneurs with secure WhatsApp support.',
   image: 'https://guranawe.rw/og-image.jpg',
   type: 'website',
 };
@@ -107,9 +107,11 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
-    telephone: '+250722248567',
-    email: 'hello@guranawe.rw',
+    telephone: '+250780188958',
+    email: 'guranawe.com@gmail.com',
   },
+  telephone: '+250780188958',
+  email: 'guranawe.com@gmail.com',
   sameAs: [
     'https://instagram.com/guranawe',
     'https://facebook.com/guranawe',

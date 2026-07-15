@@ -4,7 +4,7 @@ import {
   Zap, Star
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import marketplaceData from '../../data/marketplace.json';
+import { getMarketplaceData } from '../../utils/marketplaceStore';
 import { cn } from '../../utils/utils';
 
 const containerVariants = {
@@ -36,6 +36,8 @@ const statMetrics = [
 ];
 
 export default function Hero() {
+  const { store } = getMarketplaceData();
+
   return (
     <section className="relative min-h-screen pt-20 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -117,7 +119,7 @@ export default function Hero() {
               </Link>
 
               <motion.a
-                href={`https://wa.me/${marketplaceData.store.whatsapp}`}
+                href={`https://wa.me/${store.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.02, y: -2 }}
