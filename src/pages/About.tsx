@@ -103,9 +103,14 @@ export default function About() {
             </p>
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
-                  {[1,2,3,4].map(i => (
+                  {[
+                    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop',
+                  ].map((src, i) => (
                     <div key={i} className="w-12 h-12 rounded-full border-4 border-slate-900 dark:border-red-600 bg-slate-800 flex items-center justify-center overflow-hidden">
-                       <img src={`https://i.pravatar.cc/100?u=${i}`} alt="user" />
+                      <img src={src} alt={`Support team ${i + 1}`} />
                     </div>
                  ))}
               </div>

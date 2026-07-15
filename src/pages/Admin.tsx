@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { PlusCircle, Save, ShieldCheck, Trash2, RefreshCw } from 'lucide-react';
 import { getMarketplaceData, saveMarketplaceData } from '../utils/marketplaceStore';
 import type { Product } from '../types';
+
+const ADMIN_PASSWORD = 'GuraNawe2026';
+const AUTH_STORAGE_KEY = 'guraNaweAdminAuthenticated';
 
 const blankProduct = {
   id: '',
@@ -23,11 +26,31 @@ export default function Admin() {
   const [products, setProducts] = useState<Product[]>([]);
   const [draft, setDraft] = useState({ ...blankProduct });
   const [message, setMessage] = useState('Manage your catalog in the browser.');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [isUnlocked, setIsUnlocked] = useState(false);
 
   useEffect(() => {
     const data = getMarketplaceData();
     setProducts(data.products);
+    const stored = window.localStorage.getItem(AUTH_STORAGE_KEY);
+    if (stored === 'true') {
+      setIsUnlocked(true);
+    }
   }, []);
+
+  const handleUnlock = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (password === ADMIN_PASSWORD) {
+      window.localStorage.setItem(AUTH_STORAGE_KEY, 'true');
+      setIsUnlocked(true);
+      setPasswordError('');
+      setPassword('');
+      return;
+    }
+
+    setPasswordError('Incorrect password. Please try again.');
+  };
 
   const totalValue = useMemo(() => products.reduce((sum, item) => sum + item.priceRWF, 0), [products]);
 
@@ -69,6 +92,39 @@ export default function Admin() {
     saveMarketplaceData({ products: updated });
     setMessage('Asset removed.');
   };
+
+  if (!isUnlocked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-12">
+        <div className="w-full max-w-md rounded-[32px] bg-slate-900/95 border border-slate-800 shadow-2xl p-8">
+          <div className="mb-8 text-center">
+            <div className="mx-auto mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">
+              <ShieldCheck size={24} />
+            </div>
+            <h1 className="text-3xl font-black text-white">Admin Access</h1>
+            <p className="mt-3 text-slate-400">Enter the password to unlock the secure admin dashboard.</p>
+          </div>
+          <form onSubmit={handleUnlock} className="space-y-5">
+            <label className="block text-sm font-semibold text-slate-300">Access password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Enter password"
+              className="w-full rounded-3xl border border-slate-700 bg-slate-950 px-5 py-4 text-slate-100 placeholder:text-slate-500 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+            />
+            {passwordError && <p className="text-sm text-red-400">{passwordError}</p>}
+            <button
+              type="submit"
+              className="w-full rounded-3xl bg-gradient-to-r from-red-600 to-orange-600 px-6 py-4 text-sm font-black uppercase tracking-[0.2em] text-white shadow-lg shadow-red-600/30 transition hover:brightness-110"
+            >
+              Unlock Dashboard
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-28 pb-24 bg-slate-50 dark:bg-slate-950">

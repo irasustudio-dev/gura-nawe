@@ -86,14 +86,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <a href="/privacy" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+              <Link to="/about" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 Privacy
-              </a>
+              </Link>
             </li>
             <li>
-                <a href="/contact" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <Link to="/contact" className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
                 Terms
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

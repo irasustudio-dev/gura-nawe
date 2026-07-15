@@ -10,8 +10,8 @@ interface MetaConfig {
 }
 
 const defaultMeta: MetaConfig = {
-  title: 'GURA NAWE - Buy & Sell Digital Assets Safely',
-  description: 'Modern digital marketplace for buying and selling social media assets and digital services in Rwanda. YouTube channels, TikTok accounts, Instagram, and more.',
+  title: 'GURA NAWE - High-End Digital Assets Marketplace',
+  description: 'GURA NAWE is a premium digital assets marketplace for creator accounts, social media assets, and growth services with secure WhatsApp-based support.',
   image: 'https://guranawe.rw/og-image.jpg',
   type: 'website',
 };

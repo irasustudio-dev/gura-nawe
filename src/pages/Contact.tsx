@@ -40,7 +40,7 @@ export default function Contact() {
       value: store.address, 
       icon: MapPin, 
       color: "text-red-500",
-      link: "#"
+      link: "https://maps.google.com/?q=Kigali,+Rwanda"
     },
   ];
 
@@ -181,7 +181,7 @@ export default function Contact() {
             <div className="mt-12 flex items-center justify-center gap-8 text-slate-400">
                <a href={store.socialLinks.instagram} className="hover:text-red-600 transition-colors"><Instagram size={28} /></a>
                <a href={store.socialLinks.facebook} className="hover:text-red-600 transition-colors"><Facebook size={28} /></a>
-               <a href="#" className="hover:text-red-600 transition-colors"><Twitter size={28} /></a>
+               <a href="https://twitter.com/guranawe" target="_blank" rel="noreferrer" className="hover:text-red-600 transition-colors"><Twitter size={28} /></a>
             </div>
           </div>
         </div>
