@@ -14,7 +14,7 @@ import Services from './pages/Services';
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Admin from './pages/Admin';
+import AdminPage from './pages/Admin';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/shared/ScrollToTop';
@@ -37,7 +37,7 @@ export default function App() {
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
+                <Route path="/admin" element={<AdminPage />} />
               </Routes>
             </main>
             <Footer />
